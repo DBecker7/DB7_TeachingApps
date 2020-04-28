@@ -1,0 +1,12 @@
+name: PoissonBinomialApprox
+title: PoissonBinomialApprox
+username:
+account: dbecker
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 2202055
+bundleId: 3077157
+url: https://dbecker.shinyapps.io/PoissonBinomialApprox/
+when: 1588085359.60532
+asMultiple: FALSE
+asStatic: FALSE
