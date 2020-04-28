@@ -5,6 +5,6 @@ Some applications for self-discovery of statistical concepts and rules-of-thumb.
 
 To run without downloading: 
 
-```{r}
+```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
 ```
