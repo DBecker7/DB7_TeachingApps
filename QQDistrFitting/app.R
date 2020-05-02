@@ -20,7 +20,7 @@ Theos <- c("Normal", "Gamma", "Binomial", "Exponential")
 ui <- fluidPage(
     
     # Application title
-    titlePanel("QQ-plots for testing distributional assumptions."),
+    titlePanel("QQ-Plots for testing distributional assumptions"),
     
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
@@ -48,7 +48,7 @@ ui <- fluidPage(
         
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot", height = "700px"),
+            plotOutput("distPlot", height = "600px"),
             tags$div(HTML("Some questions:<br><ul>
 	<li>Which distribution(s) can NEVER be approximated by the normal distribition?</li>
 	<li>What do discrete variables look like in the QQ plot?</li>
@@ -81,10 +81,10 @@ server <- function(input, output) {
                     "="*.(round(rate, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
         } else if(input$rdist == "Binomial(n,p)"){
-            sigma <- input$sigma
-            mu <- input$mu
+            mu <- input$sigma
+            sigma <- input$mu
             if(mu <= 0) mu <- 0.001
-            p <- input$mu
+            p <- mu
             if(p <= 0) p <- 0.001
             if(p >= 1) p <- 0.999
             m <- round(sigma)
