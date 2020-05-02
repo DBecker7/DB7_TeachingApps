@@ -23,6 +23,8 @@ Demonstration of the usefulness of QQ plots in assessing distributional assumpti
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
 ```
 
+![](ReadmeFigs/QQDistrFitting.jpg)
+
 ### ScatterCorr
 
 Shows what different correlations look like. Allows you to change the slope *independently* of the correlation, demonstrating that they're not the same thing.
@@ -30,6 +32,8 @@ Shows what different correlations look like. Allows you to change the slope *ind
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
 ```
+
+![](ReadmeFigs/ScatterCorr.jpg)
 
 
 
