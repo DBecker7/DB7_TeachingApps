@@ -8,3 +8,27 @@ To run without downloading:
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
 ```
+
+
+**QQDistrFitting**: Demonstration of the usefulness of QQ plots in assessing distributional assumptions. The app shows the histogram (with estimated density overlaid) and the qq-plot (which does *not* need an estimate of the parameters).
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
+```
+
+**ScatterCorr**: Shows what different correlations look like. Allows you to change the slope *independently* of the correlation, demonstrating that they're not the same thing.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
+```
+
+
+
+
+
+
+
+
+
+
+
