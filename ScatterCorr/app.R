@@ -10,11 +10,10 @@
 
 library(MASS)
 library(shiny)
-library(shinythemes)
 library(ggplot2)
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(theme = shinythemes::shinytheme("yeti"),
+ui <- fluidPage(
     
     # Application title
     titlePanel("Scatterplots with fixed correlation"),
