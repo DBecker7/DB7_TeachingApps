@@ -67,11 +67,12 @@ server <- function(input, output) {
             Sigma = matrix(c(1, r, r, 1), nrow = 2), 
             empirical=TRUE)
         x = xy[, 1] 
-        y = input$a + input$b*xy[, 2] 
+        y = input$a + (input$b + 0.001)*xy[, 2] 
         ggplot(mapping = aes(x = x, y = y)) + geom_point() + 
             geom_smooth(method = "lm", formula = y ~ x) +
             theme_bw() + 
-            labs(title = paste0("Scatterplot with n = ", n, " and r = ", round(cor(x,y), 3)))
+            labs(title = paste0("Scatterplot with n = ", n, 
+                " and r = ", round(cor(x,y), 3)))
     })
 }
 
