@@ -7,12 +7,14 @@
 #    http://shiny.rstudio.com/
 #
 
+
 library(MASS)
 library(shiny)
+library(shinythemes)
 library(ggplot2)
 
 # Define UI for application that draws a histogram
-ui <- fluidPage(
+ui <- fluidPage(theme = shinythemes::shinytheme("yeti"),
     
     # Application title
     titlePanel("Scatterplots with fixed correlation"),
@@ -69,7 +71,7 @@ server <- function(input, output) {
         ggplot(mapping = aes(x = x, y = y)) + geom_point() + 
             geom_smooth(method = "lm", formula = y ~ x) +
             theme_bw() + 
-            labs(title = paste0("Scatterplot with n = ", n, " and r = ", r))
+            labs(title = paste0("Scatterplot with n = ", n, " and r = ", round(cor(x,y), 3)))
     })
 }
 
