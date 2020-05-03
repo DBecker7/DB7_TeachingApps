@@ -38,7 +38,15 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
 
 
 
+# Spatial Stats Apps
 
+### Gaussian Processes
+
+GPs are vital to any spatial processes with a Gaussian term, so this app helps to understand how the parameters affect the process.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausProcess_Matern")
+```
 
 
 
