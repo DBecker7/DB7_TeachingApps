@@ -49,7 +49,12 @@ ui <- fluidPage(
         
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot"),
+            tags$div(HTML("Some questions:<br><ul>
+	<li>If the correlation is 0, what values can the slope take?</li>
+	<li>If the correlation is 0.5, what values can the slope take?</li>
+	<li>If the correlation is -0.5, what values can the slope take?</li>
+</ul>"))
         )
     )
 )
