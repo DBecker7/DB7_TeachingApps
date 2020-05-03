@@ -1,11 +1,5 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+# GaussProcess_Matern
+# Sliders for changing the parameters to see how the Matern process changes
 
 myseed <- 2112
 library(ggplot2)
