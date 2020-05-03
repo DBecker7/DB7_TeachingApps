@@ -1,12 +1,5 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above (RStudio Only - otherwise, just run the whole 
-# script).
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+# PoisBinApprox
+# Approximations to the Binomial Distribution
 
 
 # Make sure these packages are installed first.
@@ -14,13 +7,11 @@ library(shiny)
 library(dplyr)
 library(ggplot2)
 
-# Define UI for application that draws a histogram
 ui <- fluidPage(
 
     # Application title
     titlePanel("Poisson Approximation to the Binomial Distribution"),
-
-    # Sidebar with a slider input for number of bins 
+ 
     sidebarLayout(
         sidebarPanel(
             sliderInput("n",
@@ -40,7 +31,7 @@ ui <- fluidPage(
             checkboxInput("addnorm", "Add the Normal approximation?")
         ),
 
-        # Show a plot of the generated distribution
+        
         mainPanel(
            plotOutput("distPlot", height = "500px"),
             tags$div(HTML("Some questions:<br><ul>
@@ -53,7 +44,7 @@ ui <- fluidPage(
     )
 )
 
-# Define server logic required to draw a histogram
+
 server <- function(input, output) {
 
     output$distPlot <- renderPlot({
