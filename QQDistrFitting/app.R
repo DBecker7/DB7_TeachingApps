@@ -1,11 +1,5 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+# QQDistrFitting
+# How QQ plots can evaluate distribution assumptions.
 
 library(shiny)
 library(ggplot2)
@@ -16,13 +10,11 @@ Distributions <- c("Normal(mu, sigma)", "Gamma(alpha, beta)", "Binomial(n,p)",
     "Lognormal(mu, sigma)")
 Theos <- c("Normal", "Gamma", "Binomial", "Exponential")
 
-# Define UI for application that draws a histogram
 ui <- fluidPage(
     
     # Application title
     titlePanel("QQ-Plots for testing distributional assumptions"),
     
-    # Sidebar with a slider input for number of bins 
     sidebarLayout(
         sidebarPanel(
             selectInput(inputId = "rdist", 
@@ -46,7 +38,6 @@ ui <- fluidPage(
             actionButton("doit", "Click Me for New Data")
         ),
         
-        # Show a plot of the generated distribution
         mainPanel(
             plotOutput("distPlot", height = "600px"),
             tags$div(HTML("Some questions:<br><ul>
@@ -58,7 +49,6 @@ ui <- fluidPage(
     )
 )
 
-# Define server logic required to draw a histogram
 server <- function(input, output) {
     
     rdistr <- reactive({
