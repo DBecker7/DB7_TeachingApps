@@ -42,7 +42,13 @@ ui <- fluidPage(
 
         # Show a plot of the generated distribution
         mainPanel(
-           plotOutput("distPlot", height = "600px")
+           plotOutput("distPlot", height = "500px"),
+            tags$div(HTML("Some questions:<br><ul>
+	<li>A common rule of thumb is that you can use the Poisson approximation for p < 0.05. Does this seem reasonable?</li>
+	<li>A common rule of thumb is that you can use the Normal approximation when both np > 10 and n(1-p) > 10. Does this seem reasonable? </li>
+	<li>At what value of p is the Normal distribution a better approximation than the Poisson?</li>
+	<li>Why is it easier to use the Poisson approximation when n is large?</li>
+</ul>"))
         )
     )
 )
