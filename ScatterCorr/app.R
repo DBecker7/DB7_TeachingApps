@@ -76,11 +76,9 @@ server <- function(input, output) {
             Sigma = matrix(c(1, r^2, r^2, 1), nrow = 2), 
             empirical=TRUE)
         x = xy[, 1] 
-        y = input$a + (input$b + 0.001)*xy[, 2] 
-        if(input$b == 0 & input$r !=0){
-            y = input$a + (input$b)*xy[, 2] 
-        }
-        if(input$b != 0 & input$r == 0){
+        y = input$a + (input$b + 0.01)*xy[, 2] 
+        
+        if(input$r == 0){
             y = input$a
         }
         data.frame(x = x, y = y)
@@ -93,8 +91,14 @@ server <- function(input, output) {
         x <- xy[,1]
         y <- xy[,2]
         
+        if(length(unique(y)) > 1){
+            mycor <- round(cor(x,y), 3)
+        } else {
+            mycor <- "undefined"
+        }
+        
         lims <- c(floor(min(y)), ceiling(max(y)))
-        roundto <- 2
+        roundto <- 1
         lims <- c(floor(lims[1]/roundto)*roundto, 
             ceiling(lims[2]/roundto)*roundto)
         lmax <- max(abs(lims))
@@ -105,7 +109,9 @@ server <- function(input, output) {
             theme_bw() + 
             coord_cartesian(ylim = lims) + 
             labs(title = paste0("Scatterplot with n = ", nrow(xy), 
-                " and r = ", round(cor(x,y), 3)))
+                " and r = ", mycor)) +
+            scale_y_continuous(breaks = seq(-20,20, 2), 
+                minor_breaks = seq(-20,20,1))
     })
 }
 
