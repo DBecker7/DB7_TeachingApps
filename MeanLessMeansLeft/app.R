@@ -6,7 +6,7 @@ library(shiny)
 ui <- fluidPage(
     
     # Application title
-    titlePanel("Skewed Data"),
+    titlePanel("Exploration of Skewed Data"),
     
     sidebarLayout(
         sidebarPanel(
