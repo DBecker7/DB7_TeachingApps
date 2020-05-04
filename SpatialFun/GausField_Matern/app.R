@@ -13,7 +13,7 @@ ui <- fluidPage(
     sidebarLayout(
         sidebarPanel(
             sliderInput("nu",
-                "nu",
+                "nu - smoothness",
                 min = 0.1,
                 max = 5,
                 value = 1,
@@ -49,7 +49,7 @@ server <- function(input, output) {
     
     output$distPlot <- renderPlot({
         newseed() #input$doit
-        x <- y <- seq(-10, 10, 0.5)
+        x <- y <- seq(-10, 10, 0.33)
         
         model <- RMmatern(nu = input$nu, var = input$var, scale = input$scale)
         simu <- RFsimulate(model, x, y, grid=TRUE)
