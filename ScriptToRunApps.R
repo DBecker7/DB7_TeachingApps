@@ -10,22 +10,17 @@ library(shiny)
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
 
 
-
-
 # Quantile-Quantile Plots ----
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
-
-
 
 
 # Correlation in Scatterplots ----
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
 
 
-
-
 # Relationship of Mean and Median - Skewness ----
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft")
+
 
 
 
