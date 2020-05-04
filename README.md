@@ -48,7 +48,13 @@ GPs are vital to any spatial processes with a Gaussian term, so this app helps t
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausProcess_Matern")
 ```
 
+### Gaussian Fields
 
+Like a Gaussian Process, but a field instead. Still based on Matern covariance.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausField_Matern")
+```
 
 
 
