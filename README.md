@@ -32,10 +32,10 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
 Shows what different correlations look like. Allows you to change the slope *independently* of the correlation, demonstrating that they're not the same thing. Allows for animation of the slope and correlation.
 
 ```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr2")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
 ```
 
-<img src="ReadmeFigs/ScatterCorr.jpg" width="400">
+<img src="ReadmeFigs/ScatterCorr2.jpg" width="400">
 
 
 ### MeanLessMeansLeft
