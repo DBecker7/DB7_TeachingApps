@@ -65,6 +65,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft
 
 # Spatial Stats Apps
 
+The following apps are for my own exploration of spatial statistics. Simulating the data and exploring the parameters is my favourite way to comprehend the underlying concepts.
+
 ### Gaussian Processes
 
 GPs are vital to any spatial processes with a Gaussian term, so this app helps to understand how the parameters affect the process.
@@ -80,6 +82,15 @@ Like a Gaussian Process, but a field instead. Still based on Matern covariance.
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausField_Matern")
 ```
+
+
+### TODO
+
+- Exploration of INLA parameters (esp. penalized complexity).
+- Description of INLA methods.
+- Multiple realizations of a single gaussian field (both in terms of Geostatistics and Spatial Point Processes, maybe with Areal data).
+
+
 
 
 
