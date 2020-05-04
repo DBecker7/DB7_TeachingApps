@@ -36,10 +36,29 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
 <img src="ReadmeFigs/ScatterCorr.jpg" width="400">
 
 
-### CLT
+### MeanLessMeansLeft
 
-Potentially under construction. In the mean time, <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a> is the gold standard. (I doubt I'll be able to make a better one, so I might not try.)
+How the mean and median affect the skew. Please note that it took me a while to figure out how to (efficiently) generate a Gamma distribution with a pre-specified mean and median.
 
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft")
+```
+
+<img src="ReadmeFigs/MeanLessMeansLeft.jpg" width="400">
+
+
+
+## TODO
+
+- Two-Way Tables (might just be teaching materials).
+- Transformations of Random Variables
+    - Demonstrate at least two x-values, show that the y-values stay the same
+- Sampling distributions 
+    - I probably can't do better than <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
+- Marginal and conditional distributions (might just be teaching materials)
+- Mean and median for skewed distributions
+    - Use Gamma distribution to allow user to set the mean and median and see how it looks (right skew only).
 
 
 # Spatial Stats Apps
