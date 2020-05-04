@@ -115,7 +115,6 @@ server <- function(input, output) {
             lims <- range(y)
         }
         
-        
         ggplot(mapping = aes(x = x, y = y)) + geom_point() + 
             geom_smooth(method = "lm", formula = y ~ x) +
             theme_bw() + 
