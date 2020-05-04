@@ -76,11 +76,7 @@ server <- function(input, output) {
             Sigma = matrix(c(1, r^2, r^2, 1), nrow = 2), 
             empirical=TRUE)
         x = xy[, 1] 
-        y = input$a + (input$b + 0.01)*xy[, 2] 
-        
-        if(input$r == 0){
-            y = input$a
-        }
+        y = input$a + input$b*xy[, 2] 
         data.frame(x = x, y = y)
     })
     
@@ -103,6 +99,9 @@ server <- function(input, output) {
             ceiling(lims[2]/roundto)*roundto)
         lmax <- max(abs(lims))
         lims <- c(-lmax, lmax)
+        if(max(abs(y - mean(y))) < 1) lims <- mean(y) + c(-1,1)
+        if(max(abs(y - mean(y))) < 0.5) lims <- mean(y) + c(-0.5,0.5)
+        if(max(abs(y - mean(y))) < 0.1) lims <- mean(y) + c(-0.1,0.1)
         
         ggplot(mapping = aes(x = x, y = y)) + geom_point() + 
             geom_smooth(method = "lm", formula = y ~ x) +
