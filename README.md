@@ -36,6 +36,10 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
 <img src="ReadmeFigs/ScatterCorr.jpg" width="400">
 
 
+### CLT
+
+Potentially under construction. In the mean time, <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a> is the gold standard. (I doubt I'll be able to make a better one, so I might not try.)
+
 
 
 # Spatial Stats Apps
