@@ -13,7 +13,7 @@ The Poisson (and Normal) approximations to the binomial distributions. Includes 
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
 ```
 
-<img src="ReadmeFigs/PoisBinApprox.jpg" width="200">
+<img src="ReadmeFigs/PoisBinApprox.jpg" width="400">
 
 ### QQDistrFitting
 
@@ -23,7 +23,7 @@ Demonstration of the usefulness of QQ plots in assessing distributional assumpti
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
 ```
 
-![](ReadmeFigs/QQDistrFitting.jpg)
+<img src="ReadmeFigs/QQDistrFitting.jpg" width="400">
 
 ### ScatterCorr
 
@@ -33,7 +33,7 @@ Shows what different correlations look like. Allows you to change the slope *ind
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
 ```
 
-![](ReadmeFigs/ScatterCorr.jpg)
+<img src="ReadmeFigs/ScatterCorr.jpg" width="400">
 
 
 
