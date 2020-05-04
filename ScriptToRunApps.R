@@ -6,7 +6,7 @@ library(ggplot2)
 library(dplyr)
 library(shiny)
 
-# Poisson Approx to Binomial ----
+# Poisson Approximation to Binomial ----
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
 
 
