@@ -69,9 +69,12 @@ server <- function(input, output) {
         medheight <- dgamma(setmedian, alpha[aub], beta[aub])
         meanheight <- dgamma(setmean, alpha[aub], beta[aub])
         
+        skewness <- 2/sqrt(alpha[aub])
+        
         if(flipit){
             mydf <- mutate(mydf, x = - x + 2*setmean)
             setmedian <- input$median
+            skewness <- -skewness
         }
         
         if(setmean == setmedian){
@@ -82,15 +85,14 @@ server <- function(input, output) {
             
             medheight <- dgamma(setmedian, setmean, 2)
             meanheight <- medheight
-            
+            skewness = 0
         }
-        
         
         ggplot(mydf, aes(x = x, y = y)) + 
             geom_line(size = 1) +
             theme_bw() +
-            labs(title = "Mean Less Means Left",
-                subtitle = "If the MEAN is LESS than the median, that MEANS it is LEFT skewed.") +
+            labs(title = paste0("Skewness = ", round(skewness, 2)),
+                subtitle = "Mean Less Means Left: If the MEAN is LESS than the median, that MEANS it is LEFT skewed.") +
             annotate("segment", x = c(setmean, setmedian), y = c(0,0),
                 xend = c(setmean, setmedian), yend = c(meanheight, medheight),
                 size = 1, colour = c(4,2)) +
