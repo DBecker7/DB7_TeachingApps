@@ -27,7 +27,8 @@ ui <- fluidPage(
         ),
         
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot"),
+            "To quote a journal that Wikipedia quotes: Many textbooks teach a rule of thumb stating that the mean is right of the median under right skew, and left of the median under left skew. This rule fails with surprising frequency. It can fail in multimodal distributions, or in distributions where one tail is long but the other is heavy. Most commonly, though, the rule fails in discrete distributions where the areas to the left and right of the median are not equal. Such distributions not only contradict the textbook relationship between mean, median, and skew, they also contradict the textbook interpretation of the median."
         )
     )
 )
