@@ -28,8 +28,8 @@ ui <- fluidPage(
                 min = 0,
                 max = 1,
                 value = 0,
-                step = 0.05,
-                animate = list(interval = 700)),
+                step = 0.025,
+                animate = list(interval = 500)),
             sliderInput("a",
                 "Intercept",
                 min = -5,
@@ -38,11 +38,12 @@ ui <- fluidPage(
                 step = 0.1),
             sliderInput("b",
                 "Slope",
-                min = -5,
-                max = 5,
+                min = -10,
+                max = 10,
                 value = 0,
                 step = 0.1,
-                animate = list(interval = 700)),
+                animate = list(interval = 400)),
+            checkboxInput("changelims", "Round y limits for smooth animation?"),
             actionButton(inputId = "doit", label = "Click me for new data")
         ),
         
@@ -53,6 +54,7 @@ ui <- fluidPage(
 	<li>If the correlation is 0, what values can the slope take?</li>
 	<li>If the correlation is 0.5, what values can the slope take?</li>
 	<li>If the correlation is -0.5, what values can the slope take?</li>
+	<li>Set r to 0.8 and hit the play button for the slope. Do this again, but with 'Round y limits' checked. What do you notice?</li>
 </ul>"))
         )
     )
@@ -76,13 +78,13 @@ server <- function(input, output) {
             Sigma = matrix(c(1, r^2, r^2, 1), nrow = 2), 
             empirical=TRUE)
         x = xy[, 1] 
-        y = input$a + (input$b + 0.01)*xy[, 2] 
-        
-        if(input$r == 0){
+        y = input$a + input$b*xy[, 2] 
+        if(r == 0){
             y = input$a
         }
         data.frame(x = x, y = y)
     })
+    
     
     output$distPlot <- renderPlot({
         newseed()
@@ -90,6 +92,7 @@ server <- function(input, output) {
         
         x <- xy[,1]
         y <- xy[,2]
+        yglobal <<- y
         
         if(length(unique(y)) > 1){
             mycor <- round(cor(x,y), 3)
@@ -97,12 +100,21 @@ server <- function(input, output) {
             mycor <- "undefined"
         }
         
-        lims <- c(floor(min(y)), ceiling(max(y)))
-        roundto <- 1
-        lims <- c(floor(lims[1]/roundto)*roundto, 
-            ceiling(lims[2]/roundto)*roundto)
-        lmax <- max(abs(lims))
-        lims <- c(-lmax, lmax)
+        if(input$changelims){
+            y2 <- y - mean(y)
+            lims <- c(floor(min(y2)), ceiling(max(y2)))
+            roundto <- 2
+            lims <- c(floor(lims[1]/roundto)*roundto, 
+                ceiling(lims[2]/roundto)*roundto)
+            lmax <- max(abs(lims))
+            lims <- c(-lmax, lmax) + mean(y)
+            if(max(abs(y - mean(y))) < 1) lims <- mean(y) + c(-1,1)
+            if(max(abs(y - mean(y))) < 0.5) lims <- mean(y) + c(-0.5,0.5)
+            if(max(abs(y - mean(y))) < 0.1) lims <- mean(y) + c(-0.1,0.1)
+        } else {
+            lims <- range(y)
+        }
+        
         
         ggplot(mapping = aes(x = x, y = y)) + geom_point() + 
             geom_smooth(method = "lm", formula = y ~ x) +
