@@ -66,8 +66,12 @@ server <- function(input, output) {
             mutate(y = dgamma(x, alpha[aub], beta[aub])) %>% 
             filter((y > 0.001 | x < setmean) & y < 3)
         
+        medheight <- dgamma(setmedian, alpha[aub], beta[aub])
+        meanheight <- dgamma(setmean, alpha[aub], beta[aub])
+        
         if(flipit){
-            mydf <- mutate(mydf, x = - x + 2*setmedian)
+            mydf <- mutate(mydf, x = - x + 2*setmean)
+            setmedian <- input$median
         }
         
         if(setmean == setmedian){
@@ -75,6 +79,10 @@ server <- function(input, output) {
                 mutate(y = dnorm(x, mean = setmean, 
                     sd = 2)) %>% 
                 filter((y > 0.001 | x < setmean) & y < 3)
+            
+            medheight <- dgamma(setmedian, setmean, 2)
+            meanheight <- medheight
+            
         }
         
         
@@ -82,7 +90,14 @@ server <- function(input, output) {
             geom_line(size = 1) +
             theme_bw() +
             labs(title = "Mean Less Means Left",
-                subtitle = "If the MEAN is LESS than the median, that MEANS it is LEFT skewed.")
+                subtitle = "If the MEAN is LESS than the median, that MEANS it is LEFT skewed.") +
+            annotate("segment", x = c(setmean, setmedian), y = c(0,0),
+                xend = c(setmean, setmedian), yend = c(meanheight, medheight),
+                size = 1, colour = c(4,2)) +
+            annotate("text", x = setmedian, y = medheight, label = "Median", 
+                hjust = 0, colour = 2) + 
+            annotate("text", x = setmean, y = meanheight, label = "Mean", 
+                hjust = 1, colour = 4)
     })
 }
 
