@@ -4,6 +4,8 @@ Some applications for self-discovery of statistical concepts and rules-of-thumb.
 
 To run these, you may need to install `dplyr` and `ggplot2` packages. If you get a `... not found` message, you're probably missing a package.
 
+You can copy and paste the code from here, or you can save `ScriptToRunApps.R` to your computer and run them from there.
+
 ### PoisBinApprox
 
 The Poisson (and Normal) approximations to the binomial distributions. Includes sliders for sample size and probability of success. The Poisson distribution is useful when *p* is small, while the normal distribution is useful when both *np* and *n(1-p)* are larger than, say, 10 or so (this is a rule-of-thumb, not some magical value).
