@@ -4,7 +4,7 @@ Some applications for self-discovery of statistical concepts and rules-of-thumb.
 
 To run these, you may need to install `dplyr` and `ggplot2` packages. If you get a `... not found` message, you're probably missing a package.
 
-You can copy and paste the code from here, or you can save `ScriptToRunApps.R` to your computer and run them from there.
+You can copy and paste the code from here, or you can save <a href="https://github.com/DBecker7/DB7_TeachingApps/blob/master/ScriptToRunApps.R">`ScriptToRunApps.R`</a> to your computer and run them from there.
 
 ### PoisBinApprox
 
