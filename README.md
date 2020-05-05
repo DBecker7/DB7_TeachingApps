@@ -8,6 +8,8 @@ You can copy and paste the code from here, or you can save `ScriptToRunApps.R` t
 
 ### PoisBinApprox
 
+<img src="ReadmeFigs/PoisBinApprox.jpg" width="400" align="right">
+
 The Poisson (and Normal) approximations to the binomial distributions. Includes sliders for sample size and probability of success. The Poisson distribution is useful when *p* is small, while the normal distribution is useful when both *np* and *n(1-p)* are larger than, say, 10 or so (this is a rule-of-thumb, not some magical value).
 
 
@@ -15,17 +17,16 @@ The Poisson (and Normal) approximations to the binomial distributions. Includes 
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
 ```
 
-<img src="ReadmeFigs/PoisBinApprox.jpg" width="400">
 
 ### QQDistrFitting
+
+<img src="ReadmeFigs/QQDistrFitting.jpg" width="400" align="right">
 
 Demonstration of the usefulness of QQ plots in assessing distributional assumptions. The app shows the histogram (with estimated density overlaid) and the qq-plot (which does *not* need an estimate of the parameters).
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
 ```
-
-<img src="ReadmeFigs/QQDistrFitting.jpg" width="400">
 
 ### ScatterCorr
 
