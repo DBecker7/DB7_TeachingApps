@@ -19,6 +19,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
 
 ### QQDistrFitting
 
+<div>
+
 <img src="ReadmeFigs/QQDistrFitting.jpg" width="400" align="right">
 
 Demonstration of the usefulness of QQ plots in assessing distributional assumptions. The app shows the histogram (with estimated density overlaid) and the qq-plot (which does *not* need an estimate of the parameters).
@@ -26,6 +28,8 @@ Demonstration of the usefulness of QQ plots in assessing distributional assumpti
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
 ```
+
+</div>
 
 ### ScatterCorr
 
