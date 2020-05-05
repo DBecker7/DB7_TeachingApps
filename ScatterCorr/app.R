@@ -54,7 +54,7 @@ ui <- fluidPage(
 	<li>If the correlation is 0, what values can the slope take?</li>
 	<li>If the correlation is 0.5, what values can the slope take?</li>
 	<li>If the correlation is -0.5, what values can the slope take?</li>
-	<li>Set r to 0.8 and hit the play button for the slope. Do this again, but with 'Round y limits' checked. What do you notice?</li>
+	<li>Set r to 0.8 and hit the play button for the slope. Do this again, but with 'Round y limits' checked. What do you notice? How does the appearance of the correlation change with the slope?</li>
 </ul>"))
         )
     )
