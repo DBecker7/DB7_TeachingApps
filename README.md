@@ -70,7 +70,11 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "DensHist")
 - Sampling distributions 
     - I probably can't do better than <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
 - Marginal and conditional distributions (might just be teaching materials)
-- 
+- Boxplot shapes
+    - Boxplot compared to histogram, user chooses quartiles and I generate data between quartiles so that the boxplot has the same shape but the histogram looks completely different.
+- Measures of spread
+    - same idea as above, but generate data to have a pre-specified IQR and variance.
+    - Method: generate data within quartiles according to a transformed beta distribition within Q2:Q3 and transformed exponential for the upper tail (mirrored across median). As variance slider changes, change parameters to select exact variance (maybe alpha = 1, beta increases by a fixed amount for Beta, lambda increases for exponential to make variance increase match slider).
 
 
 # Spatial Stats Apps
@@ -99,6 +103,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausFi
 - Exploration of INLA parameters (esp. penalized complexity).
 - Description of INLA methods.
 - Multiple realizations of a single gaussian field (both in terms of Geostatistics and Spatial Point Processes, maybe with Areal data).
+- Generate random tesselations, show realizations of a continuous spatial process within those regions.
 
 
 
