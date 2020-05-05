@@ -2,6 +2,8 @@
 # if the MEAN is LESS than the median, that MEANS it's LEFT skewed
 
 library(shiny)
+library(dplyr)
+library(ggplot2)
 
 ui <- fluidPage(
     
