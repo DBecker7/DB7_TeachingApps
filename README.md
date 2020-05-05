@@ -15,7 +15,7 @@ The Poisson (and Normal) approximations to the binomial distributions. Includes 
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
 ```
 
-<img src="ReadmeFigs/PoisBinApprox.jpg" width="400">
+<img src="ReadmeFigs/PoisBinApprox.jpg" width="400" align="right">
 
 ### QQDistrFitting
 
