@@ -5,6 +5,7 @@
 library(shiny)
 
 myseed <- round(runif(1, 0, 1000))
+softmax <- 0.1
 
 ui <- fluidPage(
     
@@ -24,7 +25,7 @@ ui <- fluidPage(
                 max = 20,
                 step = 0.25,
                 value = c(10,20),
-                animate = list(interval = 200)),
+                animate = list(interval = 200, loop = TRUE)),
             sliderInput("bw",
                 "Density bandwidth",
                 min = 0,
@@ -55,8 +56,10 @@ server <- function(input, output) {
         input$doit
         myseed <<- myseed + 1
         set.seed(myseed)
+        softmax <<- 0.1
     })
     
+    # Using base R graphics for speed
     output$distPlot <- renderPlot({
         x <- newdata()
         
@@ -78,11 +81,13 @@ server <- function(input, output) {
         #dx <- xdens$x
         dy <- xdens$y
         
+        softmax <<- max(softmax, histy, dy)
+        
         hist(x, freq = FALSE, col = rgb(0,0,0,0.02), 
             border = rgb(0,0,0,0.2), 
             breaks = mycuts, 
             xlim = c(0,20),
-            ylim = c(0, max(0.2, histy, dy)),
+            ylim = c(0, softmax),
             xlab = "x", ylab = "Density", 
             main = NULL)
         
