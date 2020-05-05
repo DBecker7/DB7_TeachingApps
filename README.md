@@ -14,22 +14,23 @@ The Poisson (and Normal) approximations to the binomial distributions. Includes 
 
 
 ```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "PoisBinApprox")
 ```
 
 ### QQDistrFitting
 
-<div>
 
 <img src="ReadmeFigs/QQDistrFitting.jpg" width="400" align="right">
 
-Demonstration of the usefulness of QQ plots in assessing distributional assumptions. The app shows the histogram (with estimated density overlaid) and the qq-plot (which does *not* need an estimate of the parameters).
+- Demonstration of the usefulness of QQ plots in assessing distributional assumptions. 
+- The app shows the histogram (with estimated density overlaid) and the qq-plot (which does *not* need an estimate of the parameters).
+- The theoretical distribution can be changed to something other than Normal (currently just Gamma).
 
 ```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "QQDistrFitting")
 ```
-
-</div>
 
 ### ScatterCorr
 
