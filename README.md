@@ -10,7 +10,9 @@ You can copy and paste the code from here, or you can save `ScriptToRunApps.R` t
 
 <img src="ReadmeFigs/PoisBinApprox.jpg" width="400" align="right">
 
-The Poisson (and Normal) approximations to the binomial distributions. Includes sliders for sample size and probability of success. The Poisson distribution is useful when *p* is small, while the normal distribution is useful when both *np* and *n(1-p)* are larger than, say, 10 or so (this is a rule-of-thumb, not some magical value).
+- The Poisson (and Normal) approximations to the binomial distributions. 
+- Includes sliders for sample size and probability of success. 
+- The Poisson distribution is useful when *p* is small, while the normal distribution is useful when both *np* and *n(1-p)* are larger than, say, 10 or so (this is a rule-of-thumb, not some magical value).
 
 
 ```r
@@ -34,36 +36,48 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ### ScatterCorr
 
-Shows what different correlations look like. Allows you to change the slope *independently* of the correlation, demonstrating that they're not the same thing. Allows for animation of the slope and correlation.
+<img src="ReadmeFigs/ScatterCorr2.jpg" width="400" align="right">
+
+- Shows what different correlations look like. 
+- Allows you to change the slope *independently* of the correlation, demonstrating that they're not the same thing. 
+- Allows for animation of the slope and correlation.
+- Doesn't generate new data until specified, so animations allow the student to watch the correlation change.
 
 ```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "ScatterCorr")
 ```
 
-<img src="ReadmeFigs/ScatterCorr2.jpg" width="400">
 
 
 ### MeanLessMeansLeft
 
-How the mean and median affect the skew. Please note that it took me a while to figure out how to (efficiently) generate a Gamma distribution with a pre-specified mean and median.
+<img src="ReadmeFigs/MeanLessMeansLeft.jpg" width="400" align="right">
+
+- How the mean and median affect the skew. 
+- Uses a Gamma distribution, so some parameter combos lead to a singularity at 0. 
+- Please note that it took me a while to figure out how to (efficiently) generate a Gamma distribution with a pre-specified mean and median.
 
 
 ```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "MeanLessMeansLeft")
 ```
 
-<img src="ReadmeFigs/MeanLessMeansLeft.jpg" width="400">
 
 
 ### DensHist
 
-A density plot can be found as the limit as n approaches infinity and te binwidth approaches 0. This tool lets students explore that while also exploring how the histogram changes with bin width and the density plot changes with bandwidth.
+<img src="ReadmeFigs/DensHist.jpg" width="400" align="right">
+
+- Exploration of the connection between binwidth and bandwidth.
+- A density plot can be found as the limit as n approaches infinity and te binwidth approaches 0. 
+- This tool lets students explore that while also exploring how the histogram changes with bin width and the density plot changes with bandwidth.
 
 ```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "DensHist")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "DensHist")
 ```
-
-<img src="ReadmeFigs/DensHist.jpg" width="400">
 
 
 
