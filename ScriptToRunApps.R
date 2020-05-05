@@ -21,7 +21,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
 # Relationship of Mean and Median - Skewness ----
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft")
 
-
+# Relationship between histograms and density plots ----
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "DensHist")
 
 
 # Spatial Passion Projects ----

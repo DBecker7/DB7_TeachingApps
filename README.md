@@ -50,6 +50,17 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft
 <img src="ReadmeFigs/MeanLessMeansLeft.jpg" width="400">
 
 
+### DensHist
+
+A density plot can be found as the limit as n approaches infinity and te binwidth approaches 0. This tool lets students explore that while also exploring how the histogram changes with bin width and the density plot changes with bandwidth.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "DensHist")
+```
+
+<img src="ReadmeFigs/DensHist.jpg" width="400">
+
+
 
 ## TODO
 
@@ -59,8 +70,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft
 - Sampling distributions 
     - I probably can't do better than <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
 - Marginal and conditional distributions (might just be teaching materials)
-- Mean and median for skewed distributions
-    - Use Gamma distribution to allow user to set the mean and median and see how it looks (right skew only).
+- 
 
 
 # Spatial Stats Apps
