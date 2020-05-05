@@ -20,14 +20,14 @@ ui <- fluidPage(
                 step = 5,
                 value = 100),
             sliderInput("bin",
-                "Bin",
+                "Histogram Bin",
                 min = 0,
                 max = 20,
                 step = 0.25,
                 value = c(10,20),
                 animate = list(interval = 200, loop = TRUE)),
             sliderInput("bw",
-                "Density bandwidth",
+                "Density Bandwidth",
                 min = 0,
                 max = 2,
                 step = 0.05,
@@ -37,7 +37,13 @@ ui <- fluidPage(
         ),
         
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot"),
+            tags$div(HTML("Some questions:<br><ul>
+    <li>Changing the bins does not change the data, even though it might look that way. For various bin widths, how does the shape of the histogram change?</li>
+    <li>How does the shape of the density curve change with bandwidth?</li>
+    <li>How does the wiggliness of the density curve change with sample size, and why?</li>
+	<li>Set the bin width to 0.75 and bandwidth to 0.2, then hit play on the Bin slider. Is the selected bin close to the density line?</li>
+</ul>"))
         )
     )
 )
