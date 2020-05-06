@@ -121,11 +121,6 @@ library(dplyr)
 library(patchwork)
 library(tidyr)
 
-# change defaults to something I like
-myhist <- function(colour = 1, fill = "lightgrey", bins = 30, ...){ 
-    geom_histogram(colour = colour, fill = fill, bins = bins, ...)
-}
-
 data("box_plots")
 # to make my code smaller
 box_plots_long <- pivot_longer(data = box_plots, cols = 1:5,
@@ -134,7 +129,8 @@ box_plots_long <- pivot_longer(data = box_plots, cols = 1:5,
 boxes <- ggplot(box_plots_long, aes(x = x)) + 
     geom_boxplot() + facet_wrap(~ dataset, ncol = 1)
 histos <- ggplot(box_plots_long, aes(x = x)) + 
-    myhist() + facet_wrap(~ dataset, ncol = 1)
+    geom_histogram(colour = 1, fill = "lightgrey", bins = 30) + 
+    facet_wrap(~ dataset, ncol = 1)
 boxes + histos + # patchwork magic
     plot_annotation(
         title = "Boxplots hide more complicated shapes"
