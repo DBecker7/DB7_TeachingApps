@@ -86,7 +86,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 **Importance of visualizations:** Ya can't beat the datasauRus from https://www.autodeskresearch.com/publications/samestats. It's an update of Anscombe's quartet with some even more interesting features.
 
 
-<img src="Readmefigs/datasauRus.png" align="right" width="400">
+<img src="ReadmeFigs/datasauRus.png" align="right" width="400">
 
 ```r
 # Load some packages
@@ -111,7 +111,7 @@ filter(datasaurus_dozen,
 
 **Box plots hide shapes:** From the same people who brought you the datasaurus dozen!
 
-<img src="Readmefigs/box_plots.png" align="right" width="300">
+<img src="ReadmeFigs/box_plots.png" align="right" width="300">
 
 ```r
 library(datasauRus)
