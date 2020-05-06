@@ -83,39 +83,62 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 **CLT:** This app is a classic, and there's no reason for me to top it. <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
 
-**How boxplots can hide shape:** Ya can't beat the datasauRus from https://www.autodeskresearch.com/publications/samestats.
+**Importance of visualizations:** Ya can't beat the datasauRus from https://www.autodeskresearch.com/publications/samestats. It's an update of Anscombe's quartet with some even more interesting features.
+
+
+<img src="Readmefigs/datasauRus.png" align="right" width="400">
+
+```r
+# Load some packages
+library(datasauRus)
+library(ggplot2)
+# as always
+theme_set(theme_bw()) 
+library(dplyr)
+
+# All of these plots have the same summary statistics,
+    # including xbar, ybar, sd_x, sd_y, and correlation
+data("datasaurus_dozen")
+# remove a dataset for 3x4 plot
+filter(datasaurus_dozen,
+    dataset != "slant_up") %>% 
+    ggplot(aes(x = x, y = y)) + 
+        geom_point() + 
+        facet_wrap(~ dataset, ncol = 4) +
+        labs(title = "All have same summary statistics")
+```
+
+
+**Box plots hide shapes:** From the same people who brought you the datasaurus dozen!
+
+<img src="Readmefigs/box_plots.png" align="right" width="300">
 
 ```r
 library(datasauRus)
 library(ggplot2)
+theme_set(theme_bw()) # as always
 library(dplyr)
-datasauRus::box_plots
-
-# All of these plots have the same summary statistics: 
-    # xbar, ybar, sd_x, sd_y, and correlation
-data("datasaurus_dozen")
-ggplot(datasaurus_dozen, aes(x = x, y = y)) + 
-    geom_point() + 
-    facet_wrap(~dataset) +
-    theme_bw()
-
 library(patchwork)
 library(tidyr)
 
-theme_set(theme_bw())
+# change defaults to something I like
 myhist <- function(colour = 1, fill = "lightgrey", bins = 30, ...){ 
     geom_histogram(colour = colour, fill = fill, bins = bins, ...)
 }
 
-box_plots_long <- pivot_longer(data = box_plots, cols = 1:3,
+data("box_plots")
+# to make my code smaller
+box_plots_long <- pivot_longer(data = box_plots, cols = 1:5,
     names_to = "dataset", values_to = "x")
 
 boxes <- ggplot(box_plots_long, aes(x = x)) + 
-    geom_boxplot() + facet_wrap(~ dataset, nrow = 1)
+    geom_boxplot() + facet_wrap(~ dataset, ncol = 1)
 histos <- ggplot(box_plots_long, aes(x = x)) + 
-    myhist() + facet_wrap(~ dataset, nrow = 1)
-boxes / histos  +# patchwork magic
-    plot_annotation(title = "Boxplots hide the shape")
+    myhist() + facet_wrap(~ dataset, ncol = 1)
+boxes + histos + # patchwork magic
+    plot_annotation(
+        title = "Boxplots hide more complicated shapes"
+    )
 ```
 
 
