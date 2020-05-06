@@ -78,7 +78,10 @@ server <- function(input, output) {
             scale_fill_manual(values = c("#7570b3", "#66a61e")) +
             scale_colour_manual(values = c("#7570b3", "#66a61e")) +
             theme_bw() +
-            coord_cartesian(xlim = plotlims) +
+            coord_cartesian(xlim = plotlims) + 
+            theme(title = element_text(size = 16), 
+                axis.text = element_text(size = 14), 
+                legend.text = element_text(size = 14))  +
             labs(x = "x", y = "f(x)", 
                 title = mytitle,
                 subtitle = paste0("n = ", n, ", p = ", round(p, 7))) +

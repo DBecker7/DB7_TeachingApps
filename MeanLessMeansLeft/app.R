@@ -101,7 +101,9 @@ server <- function(input, output) {
             annotate("text", x = setmedian, y = medheight, label = "Median", 
                 hjust = 0, colour = 2) + 
             annotate("text", x = setmean, y = meanheight, label = "Mean", 
-                hjust = 1, colour = 4)
+                hjust = 1, colour = 4) + 
+            theme(title = element_text(size = 16), 
+                axis.text = element_text(size = 14)) 
     })
 }
 

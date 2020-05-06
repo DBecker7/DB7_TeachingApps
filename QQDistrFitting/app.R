@@ -180,7 +180,9 @@ server <- function(input, output) {
             geom_histogram(aes(x = ysamp, y = ..density..), 
                 bins = input$bins, fill = "lightgrey", colour = 1) +
             geom_line(aes(x = xtheo, y = dtheo), colour = "red", size = 1) +
-            theme_bw() +
+            theme_bw() + 
+            theme(title = element_text(size = 16), 
+                axis.text = element_text(size = 14)) +
             labs(title = theotit, 
                 subtitle = "Parameters of red curve estimated by Method of Moments (Covered in SS3858)",
                 y = "Density", x = "Sample")
@@ -190,7 +192,9 @@ server <- function(input, output) {
             labs(title = title, subtitle = subtit, 
                 x = paste0("Theoretical ", input$qdist, " Quantiles"),
                 y = "Sample Quantiles") +
-            theme_bw()
+            theme_bw() + 
+            theme(title = element_text(size = 14), 
+                axis.text = element_text(size = 12)) 
         
         ghist / gqq
     })

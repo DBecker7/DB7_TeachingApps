@@ -122,7 +122,9 @@ server <- function(input, output) {
             labs(title = paste0("Scatterplot with n = ", nrow(xy), 
                 " and r = ", mycor)) +
             scale_y_continuous(breaks = seq(-20,20, 2), 
-                minor_breaks = seq(-20,20,1))
+                minor_breaks = seq(-20,20,1)) + 
+            theme(title = element_text(size = 16), 
+                axis.text = element_text(size = 14)) 
     })
 }
 
