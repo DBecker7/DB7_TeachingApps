@@ -79,6 +79,44 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "DensHist")
 ```
 
+### Other
+
+**CLT:** This app is a classic, and there's no reason for me to top it. <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
+
+**How boxplots can hide shape:** Ya can't beat the datasauRus from https://www.autodeskresearch.com/publications/samestats.
+
+```r
+library(datasauRus)
+library(ggplot2)
+library(dplyr)
+datasauRus::box_plots
+
+# All of these plots have the same summary statistics: 
+    # xbar, ybar, sd_x, sd_y, and correlation
+data("datasaurus_dozen")
+ggplot(datasaurus_dozen, aes(x = x, y = y)) + 
+    geom_point() + 
+    facet_wrap(~dataset) +
+    theme_bw()
+
+library(patchwork)
+library(tidyr)
+
+theme_set(theme_bw())
+myhist <- function(colour = 1, fill = "lightgrey", bins = 30, ...){ 
+    geom_histogram(colour = colour, fill = fill, bins = bins, ...)
+}
+
+box_plots_long <- pivot_longer(data = box_plots, cols = 1:3,
+    names_to = "dataset", values_to = "x")
+
+boxes <- ggplot(box_plots_long, aes(x = x)) + 
+    geom_boxplot() + facet_wrap(~ dataset, nrow = 1)
+histos <- ggplot(box_plots_long, aes(x = x)) + 
+    myhist() + facet_wrap(~ dataset, nrow = 1)
+boxes / histos  +# patchwork magic
+    plot_annotation(title = "Boxplots hide the shape")
+```
 
 
 ## TODO
@@ -86,11 +124,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 - Two-Way Tables (might just be teaching materials).
 - Transformations of Random Variables
     - Demonstrate at least two x-values, show that the y-values stay the same
-- Sampling distributions 
-    - I probably can't do better than <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
 - Marginal and conditional distributions (might just be teaching materials)
-- Boxplot shapes
-    - Boxplot compared to histogram, user chooses quartiles and I generate data between quartiles so that the boxplot has the same shape but the histogram looks completely different.
 - Measures of spread
     - same idea as above, but generate data to have a pre-specified IQR and variance.
     - Method: generate data within quartiles according to a transformed beta distribition within Q2:Q3 and transformed exponential for the upper tail (mirrored across median). As variance slider changes, change parameters to select exact variance (maybe alpha = 1, beta increases by a fixed amount for Beta, lambda increases for exponential to make variance increase match slider).
