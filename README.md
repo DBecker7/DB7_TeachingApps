@@ -87,6 +87,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 **Importance of visualizations:** Ya can't beat the datasauRus from https://www.autodeskresearch.com/publications/samestats. It's an update of Anscombe's quartet with some even more interesting features.
 
+The following code chunks are both standalone scripts.
+
 
 <img src="ReadmeFigs/datasauRus.png" align="right" width="350">
 
@@ -116,6 +118,7 @@ filter(datasaurus_dozen,
 <img src="ReadmeFigs/box_plots.png" align="right" width="350">
 
 ```r
+# I need a surprising amount of packages for this
 library(datasauRus)
 library(ggplot2)
 theme_set(theme_bw()) # as always
@@ -124,7 +127,7 @@ library(patchwork)
 library(tidyr)
 
 data("box_plots")
-# to make my code smaller
+# to make my code more compact (faceting)
 box_plots_long <- pivot_longer(data = box_plots, cols = 1:5,
     names_to = "dataset", values_to = "x")
 
@@ -134,7 +137,9 @@ boxes <- ggplot(box_plots_long, aes(x = x)) +
 histos <- ggplot(box_plots_long, aes(x = x)) + 
     geom_histogram(colour = 1, fill = "lightgrey", bins = 30) + 
     facet_wrap(~ dataset, ncol = 1)
-boxes + histos + # patchwork magic
+    
+# patchwork is a magical package
+boxes + histos +
     plot_annotation(
         title = "Boxplots hide more complicated shapes"
     )
