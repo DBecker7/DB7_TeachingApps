@@ -108,7 +108,7 @@ filter(datasaurus_dozen,
     dataset != "slant_up") %>% 
     ggplot(aes(x = x, y = y)) + 
         geom_point() + 
-        facet_wrap(~ dataset, ncol = 4) +
+        facet_wrap(~ dataset, ncol = 3) +
         labs(title = "All have same summary statistics")
 
 datasaurus_dozen %>% 
