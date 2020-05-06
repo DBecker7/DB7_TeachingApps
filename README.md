@@ -81,11 +81,11 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "DensHist")
 ```
 
-### Other
+### Credit where credit is due
 
 **CLT:** This app is a classic, and there's no reason for me to top it. <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
 
-**Importance of visualizations:** Ya can't beat the datasauRus from https://www.autodeskresearch.com/publications/samestats. It's an update of Anscombe's quartet with some even more interesting features.
+**Importance of visualizations:** Ya can't beat the datasauRus dozen from https://www.autodeskresearch.com/publications/samestats. It's an update of Anscombe's quartet with even more interesting features.
 
 The following code chunks are both standalone scripts.
 
@@ -110,10 +110,31 @@ filter(datasaurus_dozen,
         geom_point() + 
         facet_wrap(~ dataset, ncol = 4) +
         labs(title = "All have same summary statistics")
+
+datasaurus_dozen %>% 
+    group_by(dataset) %>% 
+    summarise(m_x = mean(x), m_y = mean(y),
+        s_x = sd(x), s_y = sd(y), r = cor(x,y)) %>% 
+    knitr::kable(digits = 3)
 ```
 
+|dataset    |    m_x|    m_y|    s_x|    s_y|      r|
+|:----------|------:|------:|------:|------:|------:|
+|away       | 54.266| 47.835| 16.770| 26.940| -0.064|
+|bullseye   | 54.269| 47.831| 16.769| 26.936| -0.069|
+|circle     | 54.267| 47.838| 16.760| 26.930| -0.068|
+|dino       | 54.263| 47.832| 16.765| 26.935| -0.064|
+|dots       | 54.260| 47.840| 16.768| 26.930| -0.060|
+|h_lines    | 54.261| 47.830| 16.766| 26.940| -0.062|
+|high_lines | 54.269| 47.835| 16.767| 26.940| -0.069|
+|slant_down | 54.268| 47.836| 16.767| 26.936| -0.069|
+|slant_up   | 54.266| 47.831| 16.769| 26.939| -0.069|
+|star       | 54.267| 47.840| 16.769| 26.930| -0.063|
+|v_lines    | 54.270| 47.837| 16.770| 26.938| -0.069|
+|wide_lines | 54.267| 47.832| 16.770| 26.938| -0.067|
+|x_shape    | 54.260| 47.840| 16.770| 26.930| -0.066|
 
-**Box plots hide shapes:** From the same people who brought you the datasaurus dozen!
+**Boxplots hide shapes:** From the same people who brought you the datasaurus dozen!
 
 <img src="ReadmeFigs/box_plots.png" align="right" width="350">
 
@@ -153,10 +174,9 @@ boxes + histos +
 
 - Two-Way Tables (might just be teaching materials).
 - Transformations of Random Variables
-    - Demonstrate at least two x-values, show that the y-values stay the same
+    - Demonstrate transformation of at least two x-values
 - Marginal and conditional distributions (might just be teaching materials)
 - Measures of spread
-    - same idea as above, but generate data to have a pre-specified IQR and variance.
     - Method: generate data within quartiles according to a transformed beta distribition within Q2:Q3 and transformed exponential for the upper tail (mirrored across median). As variance slider changes, change parameters to select exact variance (maybe alpha = 1, beta increases by a fixed amount for Beta, lambda increases for exponential to make variance increase match slider).
 
 
