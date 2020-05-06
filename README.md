@@ -1,4 +1,4 @@
-# DB7_TeachingApps
+# Shiny Teaching Apps
 
 Some applications for self-discovery of statistical concepts and rules-of-thumb.
 
@@ -85,7 +85,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 **CLT:** This app is a classic, and there's no reason for me to top it. <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
 
-**Importance of visualizations:** Ya can't beat the datasauRus dozen from https://www.autodeskresearch.com/publications/samestats. It's an update of Anscombe's quartet with even more interesting features.
+**Importance of visualizations:** Ya can't beat the datasauRus dozen from https://www.autodeskresearch.com/publications/samestats. It's an update of Anscombe's quartet with even more interesting features. It's also a great way to demonstrate some tidyverse/ggplot2 functions!
 
 The following code chunks are both standalone scripts.
 
@@ -207,6 +207,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausFi
 - Description of INLA methods.
 - Multiple realizations of a single gaussian field (both in terms of Geostatistics and Spatial Point Processes, maybe with Areal data).
 - Generate random tesselations, show realizations of a continuous spatial process within those regions.
+- K-function: slider for r with a circle of radius r around each point, updating the number of points as the circle expands.
+    - Inhomogenous version: #points/integral over circle
 
 
 
