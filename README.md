@@ -6,6 +6,8 @@ To run these, you may need to install `dplyr` and `ggplot2` packages. If you get
 
 You can copy and paste the code from here, or you can save <a href="https://github.com/DBecker7/DB7_TeachingApps/blob/master/ScriptToRunApps.R">`ScriptToRunApps.R`</a> to your computer and run them from there.
 
+----
+
 ### PoisBinApprox
 
 <img src="ReadmeFigs/PoisBinApprox.jpg" width="400" align="right">
@@ -127,7 +129,8 @@ box_plots_long <- pivot_longer(data = box_plots, cols = 1:5,
     names_to = "dataset", values_to = "x")
 
 boxes <- ggplot(box_plots_long, aes(x = x)) + 
-    geom_boxplot() + facet_wrap(~ dataset, ncol = 1)
+    geom_boxplot() + 
+    facet_wrap(~ dataset, ncol = 1)
 histos <- ggplot(box_plots_long, aes(x = x)) + 
     geom_histogram(colour = 1, fill = "lightgrey", bins = 30) + 
     facet_wrap(~ dataset, ncol = 1)
@@ -136,6 +139,9 @@ boxes + histos + # patchwork magic
         title = "Boxplots hide more complicated shapes"
     )
 ```
+
+
+----
 
 
 ## TODO
