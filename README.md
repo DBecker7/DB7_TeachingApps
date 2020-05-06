@@ -90,7 +90,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 The following code chunks are both standalone scripts.
 
 
-<img src="ReadmeFigs/datasauRus2.png" align="right" width="350">
+<img src="ReadmeFigs/datasauRus3.png" align="right" width="350">
 
 ```r
 # Load some packages
