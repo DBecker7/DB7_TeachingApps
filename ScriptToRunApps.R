@@ -24,6 +24,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft
 # Relationship between histograms and density plots ----
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "DensHist")
 
+# Measures of Spread
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeasureSpread")
+
 
 # Spatial Passion Projects ----
 # Gaussian Process Parameters
