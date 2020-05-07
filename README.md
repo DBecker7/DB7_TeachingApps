@@ -81,7 +81,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "DensHist")
 ```
 
-### Measures of Spread
+### MeasureSpread
 
 <img src="ReadmeFigs/MeasureSpread.jpg" width="400" align="right">
 
@@ -190,8 +190,6 @@ boxes + histos +
 - Transformations of Random Variables
     - Demonstrate transformation of at least two x-values
 - Marginal and conditional distributions (might just be teaching materials)
-- Measures of spread
-    - Method: generate data within quartiles according to a transformed beta distribition within Q2:Q3 and transformed exponential for the upper tail (mirrored across median). As variance slider changes, change parameters to select exact variance (maybe alpha = 1, beta increases by a fixed amount for Beta, lambda increases for exponential to make variance increase match slider).
 
 
 # Spatial Stats Apps
