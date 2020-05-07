@@ -94,7 +94,8 @@ server <- function(input, output) {
             geom_line(size = 1) +
             theme_bw() +
             labs(title = paste0("Skewness = ", round(skewness, 2)),
-                subtitle = "Mean Less Means Left: If the MEAN is LESS than the median, that MEANS it is LEFT skewed.") +
+                subtitle = "Mean Less Means Left: If the MEAN is LESS than the median, that MEANS it is LEFT skewed.",
+                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             annotate("segment", x = c(setmean, setmedian), y = c(0,0),
                 xend = c(setmean, setmedian), yend = c(meanheight, medheight),
                 size = 1, colour = c(4,2)) +

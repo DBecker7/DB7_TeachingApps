@@ -84,7 +84,8 @@ server <- function(input, output) {
         ggplot() + geom_point(aes(x = x, y = y)) + 
             geom_line(aes(x = x, y = y)) +
             theme_bw() +
-            labs(title = "Realization of a Gaussian Process") +
+            labs(title = "Realization of a Gaussian Process",
+                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             coord_cartesian(ylim = c(lowlim, highlim))
     })
 }

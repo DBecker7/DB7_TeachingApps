@@ -196,7 +196,8 @@ server <- function(input, output) {
             theme(title = element_text(size = 14), 
                 axis.text = element_text(size = 12)) 
         
-        ghist / gqq
+        ghist / gqq +
+            plot_annotation(caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps")
     })
 }
 

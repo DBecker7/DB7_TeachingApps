@@ -101,6 +101,11 @@ server <- function(input, output) {
             y = c(0,0,rep(xheight, 2), 0,0),
             col = "#d9b3ff")
         lines(density(x, bw = input$bw), lwd = 2, col = "#009933")
+        
+        mtext("Created by Devan Becker", 
+            side = 1, line = 3, adj = 1, cex = 0.75)
+        mtext("Github: DBecker7/DB7_TeachingApps", 
+            side = 1, line = 4, adj = 1, cex = 0.75)
     })
 }
 

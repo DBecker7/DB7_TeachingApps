@@ -84,7 +84,8 @@ server <- function(input, output) {
                 legend.text = element_text(size = 14))  +
             labs(x = "x", y = "f(x)", 
                 title = mytitle,
-                subtitle = paste0("n = ", n, ", p = ", round(p, 7))) +
+                subtitle = paste0("n = ", n, ", p = ", round(p, 7)),
+                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             theme(legend.position = "bottom") +
             if(input$addnorm) stat_function(aes(x = xseq),
                 fun = function(x) dnorm(x, n*p, sqrt(n*p*(1-p))), 

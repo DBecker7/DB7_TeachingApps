@@ -120,7 +120,8 @@ server <- function(input, output) {
             theme_bw() + 
             coord_cartesian(ylim = lims) + 
             labs(title = paste0("Scatterplot with n = ", nrow(xy), 
-                " and r = ", mycor)) +
+                " and r = ", mycor),
+                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             scale_y_continuous(breaks = seq(-20,20, 2), 
                 minor_breaks = seq(-20,20,1)) + 
             theme(title = element_text(size = 16), 

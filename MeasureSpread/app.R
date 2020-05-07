@@ -121,7 +121,14 @@ ui <- fluidPage(
         
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot"),
+            tags$div(HTML("Some questions:
+            <ol>
+                <li>Set sd = 1. What value of the IQR makes this look the most 'Normal'?</li>
+                <li>Calculate the IQR of a theoretical normal distribution.</li>
+                <li>For these simulations, I made Q2 = 0, Q1 = Q2 - IQR/2, and Q3 = Q2 + IQR/2. Is the mean restricted to be 0?</li>
+                <li>What's the theoretical lower limit on the variance for a given IQR, such that Q1 = -Q3 and Q2 = 0? Hint: imagine you have 10 values below Q1, 10 between Q1 and Q2, etc., then rearrange them to be closest to 0.</li>
+            </ol>"))
         )
     )
 )
@@ -146,6 +153,10 @@ server <- function(input, output) {
         q <- c(q1(x), q2(x), q3(x))
         abline(v = q, col = 4, lwd = 2)
         axis(1, at = q, labels = c("Q1", "Q2", "Q3"), col.axis = 4)
+        mtext("Created by Devan Becker", 
+            side = 1, line = 3, adj = 1, cex = 0.75)
+        mtext("Github: DBecker7/DB7_TeachingApps", 
+            side = 1, line = 4, adj = 1, cex = 0.75)
     })
 }
 
