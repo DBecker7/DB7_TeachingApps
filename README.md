@@ -81,6 +81,20 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "DensHist")
 ```
 
+### Measures of Spread
+
+<img src="ReadmeFigs/MeasureSpread.jpg" width="400" align="right">
+
+- Explore the relationship between IQR and standard deviation.
+- For the normal distribution, the IQR and sd have a consistent relationship. In particular, the sd is constant factor times the IQR, regardless of what the sd is!
+- For real data, almost any (IQR, sd) pair is possible. 
+    - I wrote a function to fix the IQR and perturb the data until I get the sd that I want.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "MeasureSpread")
+```
+
 ### Credit where credit is due
 
 **CLT:** This app is a classic, and there's no reason for me to top it. <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>

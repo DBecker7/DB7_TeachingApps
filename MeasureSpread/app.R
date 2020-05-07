@@ -89,7 +89,7 @@ perturb <- function(x, myiqr, mysd){
 ui <- fluidPage(
     
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Measures of Spread"),
     
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
@@ -121,14 +121,7 @@ ui <- fluidPage(
         
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("distPlot"),
-            tags$div(HTML("Some questions:
-            <ol>
-                <li>Set sd = 1. What value of the IQR makes this look the most 'Normal'?</li>
-                <li>Calculate the IQR of a theoretical normal distribution.</li>
-                <li>What's the theoretical lower limit on the variance for a given IQR, such that Q1 = -Q3 and Q2 = 0? Hint: imagine you have 10 values below Q1, 10 between Q1 and Q2, etc., then rearrange them to be closest to 0.</li>
-                <li>For these simulations, I made Q2 = 0, Q1 = Q2 - IQR/2, and Q3 = Q2 + IQR/2. Is the mean restricted to be 0?</li>
-            </ol>"))
+            plotOutput("distPlot")
         )
     )
 )
