@@ -1,6 +1,6 @@
 # Shiny Teaching Apps
 
-Some applications for self-discovery of statistical concepts and rules-of-thumb.
+Some applications for self-discovery of statistical concepts and rules-of-thumb. If you use these, let me know! Any suggestions for improvement can be raised in the Issues tab on GiHub. 
 
 To run these, you may need to install `dplyr` and `ggplot2` packages. If you get a `... not found` message, you're probably missing a package.
 

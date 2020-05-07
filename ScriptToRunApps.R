@@ -5,6 +5,7 @@
 library(ggplot2)
 library(dplyr)
 library(shiny)
+library(patchwork)
 
 # To run locally (i.e. if you cloned the repo): shiny::runApp("PoisBinApprox")
 
