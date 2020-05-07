@@ -6,33 +6,43 @@ library(ggplot2)
 library(dplyr)
 library(shiny)
 
-# Poisson Approximation to Binomial ----
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "PoisBinApprox")
+# To run locally (i.e. if you cloned the repo): shiny::runApp("PoisBinApprox")
 
+# Poisson Approximation to Binomial ----
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "PoisBinApprox")
 
 # Quantile-Quantile Plots ----
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "QQDistrFitting")
-
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "QQDistrFitting")
 
 # Correlation in Scatterplots ----
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "ScatterCorr")
-
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "ScatterCorr")
 
 # Relationship of Mean and Median - Skewness ----
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeanLessMeansLeft")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "MeanLessMeansLeft")
 
 # Relationship between histograms and density plots ----
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "DensHist")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
+    subdir = "DensHist")
 
 # Measures of Spread
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "MeasureSpread")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "MeasureSpread")
+
+
 
 
 # Spatial Passion Projects ----
 # Gaussian Process Parameters
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausProcess_Matern")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "SpatialFun/GausProcess_Matern")
+
 # Gaussian Field Parameters
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausField_Matern")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "SpatialFun/GausField_Matern")
 
 
 
