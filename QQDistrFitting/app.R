@@ -44,6 +44,7 @@ ui <- fluidPage(
 	<li>Which distribution(s) can NEVER be approximated by the normal distribition?</li>
 	<li>What do discrete variables look like in the QQ plot?</li>
 	<li>Do all normal samples look normal in a QQ plot? How much deviation should we tolerate in the QQ plot before we say that data isn't normal?</li>
+	<li>Fro each distribution, find a parameter combination where the resulting sample is well approximated by the normal distribution. Try the same with the exponential distribution.</li>
 </ul>"))
         )
     )
@@ -97,8 +98,8 @@ server <- function(input, output) {
             subtit <- bquote(lambda*"="*.(round(lambda, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
         } else if(input$rdist == "Beta(alpha, beta)"){
-            shape1 <- mu
-            shape2 <- sigma
+            shape1 <- input$mu
+            shape2 <- input$sigma
             if(shape1 <= 0) shape1 <- 0.001
             if(shape2 <= 0) shape2 <- 0.001
             ysamp <- sort(rbeta(n, shape1, shape2))
