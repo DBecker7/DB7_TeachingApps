@@ -93,7 +93,7 @@ server <- function(input, output) {
             mu <- input$mu
             if(mu <= 0) mu <- 0.001
             lambda <- mu
-            ysamp <- sort(rgamma(n, lambda))
+            ysamp <- sort(rexp(n, lambda))
             subtit <- bquote(lambda*"="*.(round(lambda, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
         } else if(input$rdist == "Beta(alpha, beta)"){
