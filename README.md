@@ -12,9 +12,9 @@ You can copy and paste the code from here, or you can save <a href="https://gith
 
 <img src="ReadmeFigs/PoisBinApprox.jpg" width="400" align="right">
 
-- The Poisson (and Normal) approximations to the binomial distributions. 
-- Includes sliders for sample size and probability of success. 
+- The Poisson (and Normal) are good approximations to the binomial distributions in different situations.  
 - The Poisson distribution is useful when *p* is small, while the normal distribution is useful when both *np* and *n(1-p)* are larger than, say, 10 or so (this is a rule-of-thumb, not some magical value).
+- Includes sliders for sample size and probability of success.
 
 
 ```r
@@ -40,9 +40,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 <img src="ReadmeFigs/ScatterCorr2.jpg" width="400" align="right">
 
-- Shows what different correlations look like. 
+- Allows students to discover what different correlations look like. 
 - Allows you to change the slope *independently* of the correlation, demonstrating that they're not the same thing. 
-- Allows for animation of the slope and correlation.
+- Sliders (with animation) for the slope and correlation.
 - Doesn't generate new data until specified, so animations allow the student to watch the correlation change.
 
 ```r
@@ -58,7 +58,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 - How the mean and median affect the skew. 
 - Uses a Gamma distribution, so some parameter combos lead to a singularity at 0. 
-- Please note that it took me a while to figure out how to (efficiently) generate a Gamma distribution with a pre-specified mean and median.
+- Please note that it took me a while to figure out how to (efficiently) generate a Gamma distribution with a pre-specified mean and median. I want credit for this.
 
 
 ```r
@@ -73,8 +73,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 <img src="ReadmeFigs/DensHist.jpg" width="400" align="right">
 
 - Exploration of the connection between binwidth and bandwidth.
-- A density plot can be found as the limit as n approaches infinity and te binwidth approaches 0. 
-- This tool lets students explore that while also exploring how the histogram changes with bin width and the density plot changes with bandwidth.
+- A density plot can be found as the limit as n approaches infinity and the binwidth approaches 0. 
+- This tool lets students explore that while also seeing how the histogram changes with binwidth and the density plot changes with bandwidth.
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
@@ -88,7 +88,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 - Explore the relationship between IQR and standard deviation.
 - For the normal distribution, the IQR and sd have a consistent relationship. In particular, the sd is constant factor times the IQR, regardless of what the sd is!
 - For real data, almost any (IQR, sd) pair is possible. 
-    - I wrote a function to fix the IQR and perturb the data until I get the sd that I want.
+    - I wrote a function to fix the IQR and perturb the data until I get the sd that I want. It doesn't always work perfectly.
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
@@ -96,6 +96,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 ```
 
 ### transform_norm
+
+Animation for transformation of normal to lognormal. 
 
 <img src="Animations/transform_norm.gif" align="right" width="400">
 
@@ -163,7 +165,7 @@ anim_save("Animations/transform_norm.gif")
 
 **Importance of visualizations:** Ya can't beat the datasauRus dozen from https://www.autodeskresearch.com/publications/samestats. It's an update of Anscombe's quartet with even more interesting features. It's also a great way to demonstrate some tidyverse/ggplot2 functions!
 
-The following code chunks are both standalone scripts.
+The following code chunks are both standalone scripts. The resulting plots are good for demonstration.
 
 
 <img src="ReadmeFigs/datasauRus3.png" align="right" width="350">
@@ -249,8 +251,6 @@ boxes + histos +
 ## TODO
 
 - Two-Way Tables (might just be teaching materials).
-- Transformations of Random Variables
-    - Demonstrate transformation of at least two x-values
 - Marginal and conditional distributions (might just be teaching materials)
 
 
