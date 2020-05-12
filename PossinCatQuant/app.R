@@ -22,7 +22,7 @@ ui <- fluidPage(
     sidebarLayout(
         sidebarPanel(
             sliderInput("bins",
-                        "Number of bins:",
+                        "Number of bins (doesn't change data):",
                         min = 1,
                         max = 50,
                         value = 30),
@@ -56,20 +56,31 @@ server <- function(input, output) {
     
     xdata <- reactive({
         input$doit
-        rnbinom(input$n, mu = input$lam, size = 1/input$alpha+0.00001)
+        x <- rnegbin(n = input$n, mu = input$lam,
+            theta = 1/(input$alpha+0.00001))
+        xest <- mledist(x, "nbinom")$estimate
+        list(x = x, xest = xest)
     })
 
     output$distPlot <- renderPlot({
         x <- xdata()
         
-        gghist <- ggplot() + geom_histogram(aes(x = x), 
+        gghist <- ggplot() + geom_histogram(aes(x = x$x, y = ..density..), 
             bins = input$bins, fill = "lightgrey", colour = 1) +
             theme_bw() +
-            labs(x = x, y = "Count", title = "Histogram")
-        ggbar <- ggplot() + geom_bar(aes(x = x), 
+            labs(x = "x", y = "Count", title = "Histogram") +
+            stat_function(fun = function(y) {
+                dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
+            }, 
+                col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
+        ggbar <- ggplot() + geom_bar(aes(x = x$x, y = ..prop..), 
             fill = "lightgrey", colour = 1) +
             theme_bw() +
-            labs(x = x, y = "Count", title = "Bar plot")
+            labs(x = "x", y = "Count", title = "Bar plot") +
+            stat_function(fun = function(y) {
+                dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
+            }, 
+                col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
         
         gghist / ggbar
     })
