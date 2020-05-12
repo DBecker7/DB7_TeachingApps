@@ -95,6 +95,21 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "MeasureSpread")
 ```
 
+### PoissonCatQuant
+
+<img src="ReadmeFigs/PoissonCatQuant.jpg" width="400" align="right">
+
+- A histogram is just a bar chart where some of the bars are merged.
+- For categorical data with a large number of categories, histograms are often preferred.
+- If there aren't many categories, a bar chart may be better.
+- This app makes use of the negative binomial distribution to show differing numbers of categories.
+    - When the overdispersion is 0, this is a Poisson distribution.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "PoissonCatQuant")
+```
+
 ### transform_norm
 
 Animation for transformation of normal to lognormal. 

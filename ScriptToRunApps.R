@@ -33,6 +33,10 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "MeasureSpread")
 
+# Should I use a bar plot or a histogram?
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "PoissonCatQuant")
+
 
 
 
