@@ -1,52 +1,52 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+# PoissonCatQuant
 
 library(shiny)
 library(dplyr)
 library(ggplot2)
 library(patchwork)
 
-# Define UI for application that draws a histogram
 ui <- fluidPage(
-
+    
     # Application title
     titlePanel("Is Poisson Discrete or Continuous?"),
-
-    # Sidebar with a slider input for number of bins 
+     
     sidebarLayout(
         sidebarPanel(
             sliderInput("bins",
-                        "Number of bins (doesn't change data):",
-                        min = 1,
-                        max = 50,
-                        value = 30),
+                "Number of bins (doesn't change data):",
+                min = 1,
+                max = 50,
+                value = 30),
             sliderInput("n",
-                        "n",
-                        min = 10,
-                        max = 500,
-                        value = 30),
+                "n",
+                min = 10,
+                max = 500,
+                value = 30),
             sliderInput("lam",
-                        "lambda",
-                        min = 1,
-                        max = 500,
-                        value = 30),
+                "lambda",
+                min = 1,
+                max = 2000,
+                value = 30),
             sliderInput("alpha",
-                        "Overdispersion",
-                        min = 0,
-                        max = 2,
-                        value = 0.1,step = 0.1),
+                "Overdispersion",
+                min = 0,
+                max = 2,
+                value = 0.1,step = 0.1),
             actionButton("doit", "Click me for new data")
         ),
-
+        
         # Show a plot of the generated distribution
         mainPanel(
-           plotOutput("distPlot")
+            plotOutput("distPlot"),
+            tags$div(HTML("
+                <ol>
+                    <li>Find a parameter combination where the barplot looks better. Change the number of bins to give the histogram the best chance.</li>
+                    <li>Set the overdispersion to 0 and change the mean parameter (lambda) so that the histogram looks better.</li>
+                    <li>Set the mean to 5 and change the mean parameter so that the histogram looks better.</li>
+                    <li>Which display would be better for the number of children in families?</li>
+                    <li>Which display would be better for the number of cents in bank accounts?</li>
+                </ol>
+                "))
         )
     )
 )
@@ -61,7 +61,7 @@ server <- function(input, output) {
         xest <- mledist(x, "nbinom")$estimate
         list(x = x, xest = xest)
     })
-
+    
     output$distPlot <- renderPlot({
         x <- xdata()
         
@@ -71,16 +71,15 @@ server <- function(input, output) {
             labs(x = "x", y = "Count", title = "Histogram") +
             stat_function(fun = function(y) {
                 dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
-            }, 
-                col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
+            }, col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
+        
         ggbar <- ggplot() + geom_bar(aes(x = x$x, y = ..prop..), 
             fill = "lightgrey", colour = 1) +
             theme_bw() +
             labs(x = "x", y = "Count", title = "Bar plot") +
             stat_function(fun = function(y) {
                 dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
-            }, 
-                col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
+            }, col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
         
         gghist / ggbar
     })
