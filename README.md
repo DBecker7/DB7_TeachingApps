@@ -118,7 +118,7 @@ Animation for transformation of normal to lognormal.
 
 ```r
 library(dplyr)
-library(gganimate)
+library(gganimate) # loads ggplot2
 
 x1 <- seq(-3,3,0.1)
 y1 <- dnorm(x1)
@@ -289,6 +289,9 @@ Like a Gaussian Process, but a field instead. Still based on Matern covariance.
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausField_Matern")
 ```
 
+### K-Function
+
+Animation (using a for loop and `Sys.sleep`, rather than being an image) of the calculation of the K-function. Can be found under SpatialFun/Kfunction.R.
 
 ### TODO
 
@@ -296,8 +299,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausFi
 - Description of INLA methods.
 - Multiple realizations of a single gaussian field (both in terms of Geostatistics and Spatial Point Processes, maybe with Areal data).
 - Generate random tesselations, show realizations of a continuous spatial process within those regions.
-- K-function: slider for r with a circle of radius r around each point, updating the number of points as the circle expands.
-    - Inhomogenous version: #points/integral over circle
+
 
 
 
