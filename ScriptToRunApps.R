@@ -9,6 +9,11 @@ library(patchwork)
 
 # To run locally (i.e. if you cloned the repo): shiny::runApp("PoisBinApprox")
 
+# Tools ----
+# Normal Probabilities
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "pnorm")
+
 # Poisson Approximation to Binomial ----
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "PoisBinApprox")
