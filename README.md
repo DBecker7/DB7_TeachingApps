@@ -110,6 +110,19 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "PoissonCatQuant")
 ```
 
+### pnorm
+
+<img src="ReadmeFigs/pnorm.jpg" width="400" align="right">
+
+- A simple app to calculate normal probabilities
+- Displays the R code used in the title.
+- -4 = -Inf, 4 = Inf
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "pnorm")
+```
+
 ### transform_norm
 
 Animation for transformation of normal to lognormal. 
