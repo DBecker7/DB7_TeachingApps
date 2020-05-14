@@ -1,3 +1,5 @@
+library(shiny)
+
 parameter_tabs <- tagList(
     tags$style("#params { display:none; }"),
     tabsetPanel(id = "params",
