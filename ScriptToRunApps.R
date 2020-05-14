@@ -12,44 +12,44 @@ library(patchwork)
 # Tools ----
 # Normal Probabilities
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "pnorm")
+    subdir = "Tools/pnorm")
 # p-values
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "pvalues")
+    subdir = "Tools/pvalues")
 # Distribution shapes
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "distrshapes")
+    subdir = "Tools/distrshapes")
 
 
 
 # Demonstrations ----
 # Poisson Approximation to Binomial
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "PoisBinApprox")
+    subdir = "Apps/PoisBinApprox")
 
 # Quantile-Quantile Plots 
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "QQDistrFitting")
+    subdir = "Apps/QQDistrFitting")
 
 # Correlation in Scatterplots 
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "ScatterCorr")
+    subdir = "Apps/ScatterCorr")
 
 # Relationship of Mean and Median - Skewness 
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "MeanLessMeansLeft")
+    subdir = "Apps/MeanLessMeansLeft")
 
 # Relationship between histograms and density plots 
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
-    subdir = "DensHist")
+    subdir = "Apps/DensHist")
 
 # Measures of Spread
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "MeasureSpread")
+    subdir = "Apps/MeasureSpread")
 
 # Should I use a bar plot or a histogram?
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "PoissonCatQuant")
+    subdir = "Apps/PoissonCatQuant")
 
 
 
