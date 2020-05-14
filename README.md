@@ -136,6 +136,18 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "pvalues")
 ```
 
+### distrshapes
+
+<img src="ReadmeFigs/distrshapes.jpg" width="400" align="right">
+
+- See how the shape changes with different parameters
+- Axes are "sticky" - they increase to fit new data, but don't decrease until you change the distribution or click "Reset axes".
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "distrshapes")
+```
+
 ### transform_norm
 
 Animation for transformation of normal to lognormal. 

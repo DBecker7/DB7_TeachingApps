@@ -16,7 +16,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 # p-values
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "pvalues")
-
+# Distribution shapes
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "distrshapes")
 
 
 
