@@ -13,6 +13,9 @@ library(patchwork)
 # Normal Probabilities
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "pnorm")
+# p-values
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "pvalues")
 
 # Poisson Approximation to Binomial ----
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 

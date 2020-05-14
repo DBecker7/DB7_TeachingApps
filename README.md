@@ -123,6 +123,19 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "pnorm")
 ```
 
+### pvalues
+
+<img src="ReadmeFigs/pvalues.jpg" width="400" align="right">
+
+- Calculate p-values, given a z-statistic.
+- See the difference in p-values for different hypotheses.
+- Demonstrate why we double the p-value for two-sided, and why we use absolute values.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "pvalues")
+```
+
 ### transform_norm
 
 Animation for transformation of normal to lognormal. 
