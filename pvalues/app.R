@@ -23,7 +23,13 @@ ui <- fluidPage(
         ),
         
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot"),
+            tags$div(HTML("Some questions:
+                <ol><li>What happens to the p-value when you switch from less than to greater than?</li>
+                <ol><li>What happens to the p-value when you switch from less than to two-sided?</li>
+                <ol><li>When zobs < 0, why is the p-value larger than 1 if 'Use absolute value' is not checked?</li>
+                
+                </ol"))
         )
     )
 )
