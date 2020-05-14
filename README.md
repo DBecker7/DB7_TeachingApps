@@ -14,7 +14,7 @@ You can copy and paste the code from here, or you can save <a href="https://gith
 
 ### pnorm
 
-<img src="ReadmeFigs/pnorm.jpg" width="400" align="right">
+<img src="Figures/pnorm.jpg" width="400" align="right">
 
 - A simple app to calculate normal probabilities
 - Displays the R code used in the title.
@@ -22,12 +22,12 @@ You can copy and paste the code from here, or you can save <a href="https://gith
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "pnorm")
+    subdir = "Tools/pnorm")
 ```
 
 ### pvalues
 
-<img src="ReadmeFigs/pvalues2.jpg" width="400" align="right">
+<img src="Figures/pvalues2.jpg" width="400" align="right">
 
 - Calculate p-values, given a z-statistic.
 - See the difference in p-values for different hypotheses.
@@ -35,12 +35,12 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "pvalues")
+    subdir = "Tools/pvalues")
 ```
 
 ### distrshapes
 
-<img src="ReadmeFigs/distrshapes.jpg" width="400" align="right">
+<img src="Figures/distrshapes.jpg" width="400" align="right">
 
 - See how the shape changes with different parameters
 - Axes are "sticky" - they increase to fit new data, but don't decrease until you change the distribution or click "Reset axes".
@@ -48,7 +48,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "distrshapes")
+    subdir = "Tools/distrshapes")
 ```
 
 
@@ -56,7 +56,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ### PoisBinApprox
 
-<img src="ReadmeFigs/PoisBinApprox.jpg" width="400" align="right">
+<img src="Figures/PoisBinApprox.jpg" width="400" align="right">
 
 - The Poisson (and Normal) are good approximations to the binomial distributions in different situations.  
 - The Poisson distribution is useful when *p* is small, while the normal distribution is useful when both *np* and *n(1-p)* are larger than, say, 10 or so (this is a rule-of-thumb, not some magical value).
@@ -65,13 +65,13 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "PoisBinApprox")
+    subdir = "Apps/PoisBinApprox")
 ```
 
 ### QQDistrFitting
 
 
-<img src="ReadmeFigs/QQDistrFitting.jpg" width="400" align="right">
+<img src="Figures/QQDistrFitting.jpg" width="400" align="right">
 
 - Demonstration of the usefulness of QQ plots in assessing distributional assumptions. 
 - The app shows the histogram (with estimated density overlaid) and the qq-plot (which does *not* need an estimate of the parameters).
@@ -79,12 +79,12 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "QQDistrFitting")
+    subdir = "Apps/QQDistrFitting")
 ```
 
 ### ScatterCorr
 
-<img src="ReadmeFigs/ScatterCorr2.jpg" width="400" align="right">
+<img src="Figures/ScatterCorr2.jpg" width="400" align="right">
 
 - Allows students to discover what different correlations look like. 
 - Allows you to change the slope *independently* of the correlation, demonstrating that they're not the same thing. 
@@ -93,14 +93,14 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "ScatterCorr")
+    subdir = "Apps/ScatterCorr")
 ```
 
 
 
 ### MeanLessMeansLeft
 
-<img src="ReadmeFigs/MeanLessMeansLeft.jpg" width="400" align="right">
+<img src="Figures/MeanLessMeansLeft.jpg" width="400" align="right">
 
 - How the mean and median affect the skew. 
 - Uses a Gamma distribution, so some parameter combos lead to a singularity at 0. 
@@ -109,14 +109,14 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "MeanLessMeansLeft")
+    subdir = "Apps/MeanLessMeansLeft")
 ```
 
 
 
 ### DensHist
 
-<img src="ReadmeFigs/DensHist.jpg" width="400" align="right">
+<img src="Figures/DensHist.jpg" width="400" align="right">
 
 - Exploration of the connection between binwidth and bandwidth.
 - A density plot can be found as the limit as n approaches infinity and the binwidth approaches 0. 
@@ -124,12 +124,12 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "DensHist")
+    subdir = "Apps/DensHist")
 ```
 
 ### MeasureSpread
 
-<img src="ReadmeFigs/MeasureSpread.jpg" width="400" align="right">
+<img src="Figures/MeasureSpread.jpg" width="400" align="right">
 
 - Explore the relationship between IQR and standard deviation.
 - For the normal distribution, the IQR and sd have a consistent relationship. In particular, the sd is constant factor times the IQR, regardless of what the sd is!
@@ -138,12 +138,12 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "MeasureSpread")
+    subdir = "Apps/MeasureSpread")
 ```
 
 ### PoissonCatQuant
 
-<img src="ReadmeFigs/PoissonCatQuant.jpg" width="400" align="right">
+<img src="Figures/PoissonCatQuant.jpg" width="400" align="right">
 
 - A histogram is just a bar chart where some of the bars are merged.
 - For categorical data with a large number of categories, histograms are often preferred.
@@ -153,10 +153,10 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "PoissonCatQuant")
+    subdir = "Apps/PoissonCatQuant")
 ```
 
-### transform_norm
+### Animations/transform_norm
 
 Animation for transformation of normal to lognormal. 
 
@@ -229,7 +229,7 @@ anim_save("Animations/transform_norm.gif")
 The following code chunks are both standalone scripts. The resulting plots are good for demonstration.
 
 
-<img src="ReadmeFigs/datasauRus3.png" align="right" width="350">
+<img src="Figures/datasauRus3.png" align="right" width="350">
 
 ```r
 # Load some packages
@@ -275,7 +275,7 @@ datasaurus_dozen %>%
 
 **Boxplots hide shapes:** From the same people who brought you the datasaurus dozen!
 
-<img src="ReadmeFigs/box_plots.png" align="right" width="350">
+<img src="Figures/box_plots.png" align="right" width="350">
 
 ```r
 # I need a surprising amount of packages for this
@@ -331,7 +331,7 @@ Like a Gaussian Process, but a field instead. Still based on Matern covariance.
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausField_Matern")
 ```
 
-### K-Function
+### SpatialFun/Kfunction
 
 Animation (using a for loop and `Sys.sleep`, rather than being an image) of the calculation of the K-function. Can be found under SpatialFun/Kfunction.R.
 
