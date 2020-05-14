@@ -142,6 +142,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 - See how the shape changes with different parameters
 - Axes are "sticky" - they increase to fit new data, but don't decrease until you change the distribution or click "Reset axes".
+- The sampled data are also sticky - the seed only changes when the "New Data" button is pressed.
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
