@@ -1,11 +1,11 @@
-# pnorm
+# pvalues
 
 library(shiny)
 
 ui <- fluidPage(
     
     # Application title
-    titlePanel("Normal Probabilities"),
+    titlePanel("Visualization of p-values"),
     
     sidebarLayout(
         sidebarPanel(
