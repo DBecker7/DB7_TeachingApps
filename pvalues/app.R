@@ -1,6 +1,7 @@
 # pvalues
 
 library(shiny)
+library(ggplot2)
 
 ui <- fluidPage(
     
@@ -14,7 +15,7 @@ ui <- fluidPage(
                 min = -4,
                 max = 4,
                 value = 1.96,
-                step = 0.01),
+                step = 0.05),
             radioButtons(inputId = "alt", label = "Alternative", 
                 choices = c("Less Than", "Greater Than", "Not Equals"), 
                 selected = "Less Than"),
@@ -40,11 +41,17 @@ server <- function(input, output) {
             yrib1 <- dnorm(xrib1)
             xrib2 <- numeric(0)
             yrib2 <- numeric(0)
+            roundp <- round(pnorm(zobs), 3)
+            mytitle <- paste0("p-value is ", roundp)
+            addtox <- c(zobs)
         } else if(input$alt == "Greater Than"){
             xrib1 <- seq(zobs, 4, 0.01)
             yrib1 <- dnorm(xrib1)
             xrib2 <- numeric(0)
             yrib2 <- numeric(0)
+            roundp <- round(1 - pnorm(zobs), 3)
+            mytitle <- paste0("p-value is ", roundp)
+            addtox <- c(zobs)
         } else {
             zobs1 <- zobs
             if(input$correct2) zobs1 <- abs(zobs)
@@ -52,26 +59,22 @@ server <- function(input, output) {
             yrib1 <- dnorm(xrib1)
             xrib2 <- seq(zobs1, 4, 0.01)
             yrib2 <- dnorm(xrib2)
-        }
-        
-        
-        if(input$alt == "Not Equals"){
             roundp <- round(pnorm(-zobs1) + 1 - pnorm(zobs1), 3)
             mytitle <- paste0("p-value is ", roundp)
             if(roundp >= 1) mytitle <- paste0(mytitle, ", but that probably isn't right.")
             addtox <- c(-zobs, zobs)
-        } else {
-            roundp <- round(1 - pnorm(zobs), 3)
-            mytitle <- paste0("p-value is ", roundp)
-            addtox <- c(zobs)
         }
+        
+        
         
         ggplot() + 
             geom_ribbon(aes(xmin = xrib1, x=xrib1, ymin = 0, ymax = yrib1),
                 fill = "darkorchid", alpha = 0.4, colour = 1)+
             geom_line(aes(x = xseq, y = yseq), size = 1) +
-            scale_x_continuous(breaks = c(seq(-4,4,2), addtox)) +
+            #scale_x_continuous(breaks = c(seq(-4,4,2), addtox)) +
             theme_bw() + 
+            annotate("text", x = addtox, y = rep(-0.01, length(addtox)), 
+                label = addtox) +
             labs(x = "x", y = "dnorm(x)", title = mytitle,
                 caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") + 
             theme(title = element_text(size = 16), 
