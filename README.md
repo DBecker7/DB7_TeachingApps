@@ -8,6 +8,52 @@ You can copy and paste the code from here, or you can save <a href="https://gith
 
 ----
 
+
+
+## Tools
+
+### pnorm
+
+<img src="ReadmeFigs/pnorm.jpg" width="400" align="right">
+
+- A simple app to calculate normal probabilities
+- Displays the R code used in the title.
+- -4 = -Inf, 4 = Inf
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "pnorm")
+```
+
+### pvalues
+
+<img src="ReadmeFigs/pvalues2.jpg" width="400" align="right">
+
+- Calculate p-values, given a z-statistic.
+- See the difference in p-values for different hypotheses.
+- Demonstrate why we double the p-value for two-sided, and why we use absolute values.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "pvalues")
+```
+
+### distrshapes
+
+<img src="ReadmeFigs/distrshapes.jpg" width="400" align="right">
+
+- See how the shape changes with different parameters
+- Axes are "sticky" - they increase to fit new data, but don't decrease until you change the distribution or click "Reset axes".
+- The sampled data are also sticky - the seed only changes when the "New Data" button is pressed.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "distrshapes")
+```
+
+
+## Self-Discovery Apps
+
 ### PoisBinApprox
 
 <img src="ReadmeFigs/PoisBinApprox.jpg" width="400" align="right">
@@ -110,45 +156,6 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "PoissonCatQuant")
 ```
 
-### pnorm
-
-<img src="ReadmeFigs/pnorm.jpg" width="400" align="right">
-
-- A simple app to calculate normal probabilities
-- Displays the R code used in the title.
-- -4 = -Inf, 4 = Inf
-
-```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "pnorm")
-```
-
-### pvalues
-
-<img src="ReadmeFigs/pvalues2.jpg" width="400" align="right">
-
-- Calculate p-values, given a z-statistic.
-- See the difference in p-values for different hypotheses.
-- Demonstrate why we double the p-value for two-sided, and why we use absolute values.
-
-```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "pvalues")
-```
-
-### distrshapes
-
-<img src="ReadmeFigs/distrshapes.jpg" width="400" align="right">
-
-- See how the shape changes with different parameters
-- Axes are "sticky" - they increase to fit new data, but don't decrease until you change the distribution or click "Reset axes".
-- The sampled data are also sticky - the seed only changes when the "New Data" button is pressed.
-
-```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "distrshapes")
-```
-
 ### transform_norm
 
 Animation for transformation of normal to lognormal. 
@@ -213,7 +220,7 @@ ggplot(mydf, aes(x = x, y = y,
 anim_save("Animations/transform_norm.gif")
 ```
 
-### Credit where credit is due
+## Credit where credit is due
 
 **CLT:** This app is a classic, and there's no reason for me to top it. <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">http://onlinestatbook.com/stat_sim/sampling_dist/</a>
 
@@ -302,13 +309,9 @@ boxes + histos +
 ----
 
 
-## TODO
-
-- Two-Way Tables (might just be teaching materials).
-- Marginal and conditional distributions (might just be teaching materials)
 
 
-# Spatial Stats Apps
+## Spatial Stats Apps
 
 The following apps are for my own exploration of spatial statistics. Simulating the data and exploring the parameters is my favourite way to comprehend the underlying concepts.
 
@@ -331,13 +334,6 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausFi
 ### K-Function
 
 Animation (using a for loop and `Sys.sleep`, rather than being an image) of the calculation of the K-function. Can be found under SpatialFun/Kfunction.R.
-
-### TODO
-
-- Exploration of INLA parameters (esp. penalized complexity).
-- Description of INLA methods.
-- Multiple realizations of a single gaussian field (both in terms of Geostatistics and Spatial Point Processes, maybe with Areal data).
-- Generate random tesselations, show realizations of a continuous spatial process within those regions.
 
 
 
