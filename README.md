@@ -125,7 +125,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ### pvalues
 
-<img src="ReadmeFigs/pvalues.jpg" width="400" align="right">
+<img src="ReadmeFigs/pvalues2.jpg" width="400" align="right">
 
 - Calculate p-values, given a z-statistic.
 - See the difference in p-values for different hypotheses.
