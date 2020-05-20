@@ -11,6 +11,7 @@ library(shiny)
 library(ggplot2)
 library(plot3D)
 library(rgl)
+library(patchwork)
 library(shinyRGL)
 library(MASS)
 
@@ -33,7 +34,7 @@ userMatrix <- matrix(c(1,0,0,0,0,0.34,-0.94,0,0,0.94,0.34,0,0,0,0,1), ncol = 4)
 ui <- fluidPage(
     
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Conditional Distributions from Multivariate Normal"),
     
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
@@ -80,7 +81,8 @@ server <- shinyServer(function(input, output) {
         
         open3d(userMatrix = userMatrix)
         par3d(userMatrix = userMatrix)
-        persp3d(myx, myx, z2, col = terrain.colors(max(cols))[cols])
+        persp3d(myx, myx, z2, col = terrain.colors(max(cols))[cols], 
+            xlab = "x", ylab = "y", zlab = "z")
         lines3d(x = myx[ind], y = myx, z = z2[ind,], lwd = 3, col = "blue")
         lines3d(x = myx, y = myx[indy], z = z2[,indy], lwd = 3, col = "darkorchid")
         save <- options(rgl.inShiny = TRUE)
@@ -106,16 +108,19 @@ server <- shinyServer(function(input, output) {
         indy <- min(which(myx >= input$y))
         z2 <- z2()
         
-        par(mfrow = c(1,2))
-        plot(myx, z2[ind,], type = 'l', lwd = 2, col = "darkorchid", ylim = c(0, max(z)),
-            xlab = "y", main = paste0("y | x=", myx[ind]))
-        plot(myx, z2[,indy], type = 'l', lwd = 2, col = "blue", ylim = c(0, max(z)),
-            xlab = "x", main = paste0("x | y=", myx[indy]))
-        mtext("Created by Devan Becker", 
-            side = 1, line = 3, adj = 1, cex = 0.8)
-        mtext("Github: DBecker7/DB7_TeachingApps", 
-            side = 1, line = 4, adj = 1, cex = 0.8)
-        # TODO: Correct axes labels, maybe qplot instead?
+        
+        gg1 <- ggplot() + geom_line(aes(x = myx, y = z2[ind,]), 
+            size = 1, colour = "blue") + 
+            labs(title = "Y | X", x = "y") + 
+            coord_cartesian(ylim = c(0, max(z2))) + 
+            theme_bw()
+        gg2 <- ggplot() + geom_line(aes(x = myx, y = z2[,indy]), 
+            size = 1, colour = "darkorchid") +
+            labs(title = "X | Y", x = "x") + 
+            coord_cartesian(ylim = c(0, max(z2))) + 
+            theme_bw()
+        
+        gg1 + gg2
     })
 })
 
