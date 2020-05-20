@@ -78,7 +78,8 @@ server <- function(input, output) {
         ggbar <- ggplot() + geom_bar(aes(x = x$x, y = ..prop..), 
             fill = "lightgrey", colour = 1) +
             theme_bw() +
-            labs(x = "x", y = "Count", title = "Bar plot") +
+            labs(x = "x", y = "Count", title = "Bar plot",
+                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             stat_function(fun = function(y) {
                 dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
             }, col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
