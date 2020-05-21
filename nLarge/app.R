@@ -15,7 +15,7 @@ library(patchwork)
 ui <- fluidPage(
     
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("How large must n be?"),
     
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
@@ -59,7 +59,7 @@ server <- function(input, output) {
         nseq <- dnorm(xseq, 1/lam, 1/sqrt(n*lam^2))
         
         distdf <- data.frame(x = c(xseq, xseq), y = c(igseq, nseq), 
-            Distr. = rep(c("Actual Sampling Distr.", "Normal Approx."), each = length(xseq)))
+            Distr. = rep(c("Actual Sampling Distribution", "Normal Approximation"), each = length(xseq)))
         
         popdist <- ggplot() + 
             geom_line(aes(x = xseq, y = expseq)) +
