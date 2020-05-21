@@ -8,6 +8,24 @@ You can copy and paste the code from here, or you can save <a href="https://gith
 
 ----
 
+<!--
+For Devan:
+
+ggplot theming:
+    theme(title = element_text(size = 16), axis.text = element_text(size = 14)) 
+    caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps"
+
+base R theming:
+    mtext("Created by Devan Becker", side = 1, line = 3, adj = 1, cex = 0.8)
+    mtext("Github: DBecker7/DB7_TeachingApps", side = 1, line = 4, adj = 1, cex = 0.8)
+    
+tags$div(HTML("Some questions:
+<ol><li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+</ol>"))
+-->
 
 
 ## Tools
