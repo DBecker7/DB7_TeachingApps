@@ -32,7 +32,8 @@ ui <- fluidPage(
                 max = 100,
                 value = 5,
                 step = 1,
-                animate = list(interval = 500))
+                animate = list(interval = 500)),
+            checkboxInput("equalx", "Same x values?", value = TRUE)
         ),
         
         # Show a plot of the generated distribution
@@ -52,13 +53,24 @@ server <- function(input, output) {
         # Find reasonable x values
         maxx <- qexp(0.99, lam)
         
-        xseq <- seq(0.01,maxx,0.01)
+        xseq <- seq(0.01, maxx, length.out = 200)
         expseq <- dexp(xseq, lam)
-        igseq <- dgamma(xseq, shape = n, rate = n*lam)
-        nseq <- dnorm(xseq, 1/lam, 1/sqrt(n*lam^2))
         
-        distdf <- data.frame(x = c(xseq, xseq), y = c(igseq, nseq), 
-            Distr. = rep(c("Actual Sampling Distribution", "Normal Approximation"), each = length(xseq)))
+        if(input$equalx){
+            igseq <- dgamma(xseq, shape = n, rate = n*lam)
+            nseq <- dnorm(xseq, 1/lam, 1/sqrt(n*lam^2))
+            distdf <- data.frame(x = c(xseq, xseq), y = c(igseq, nseq), 
+                Distr. = rep(c("Actual Sampling Distribution", "Normal Approximation"), each = length(xseq)))
+        } else {
+            minx <- min(qgamma(0.01, shape = n, rate = n*lam), qnorm(0.01, 1/lam, 1/sqrt(n*lam^2)))
+            maxx <- max(qgamma(0.99, shape = n, rate = n*lam), qnorm(0.99, 1/lam, 1/sqrt(n*lam^2)))
+            
+            xseq2 <- seq(minx, maxx, length.out = 200)
+            igseq <- dgamma(xseq2, shape = n, rate = n*lam)
+            nseq <- dnorm(xseq2, 1/lam, 1/sqrt(n*lam^2))
+            distdf <- data.frame(x = c(xseq2, xseq2), y = c(igseq, nseq), 
+                Distr. = rep(c("Actual Sampling Distribution", "Normal Approximation"), each = length(xseq2)))
+        }
         
         popdist <- ggplot() + 
             geom_line(aes(x = xseq, y = expseq)) +
