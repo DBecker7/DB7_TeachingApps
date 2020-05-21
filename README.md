@@ -156,6 +156,19 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "Apps/PoissonCatQuant")
 ```
 
+### ConditionalNormal2
+
+<img src="Figures/ConditionalNormal2.jpg" width="400" align="right">
+
+- Demonstrating the concept of conditional distributions using the bivariate normal.
+- Uses the `rgl` library to display the bivariate normal.
+- Unfortunately, the rotation resets each time and I don't know how to fix this.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/ConditionalNormal2")
+```
+
 ### Animations/transform_norm
 
 Animation for transformation of normal to lognormal. 

@@ -51,6 +51,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/PoissonCatQuant")
 
+# Conditional Distributions
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/ConditionalNormal2")
 
 
 
