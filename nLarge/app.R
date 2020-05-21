@@ -23,7 +23,7 @@ ui <- fluidPage(
             sliderInput("lam",
                 "lambda:",
                 min = 0.01,
-                max = 3,
+                max = 5,
                 value = 1,
                 step = 0.01),
             sliderInput("n",

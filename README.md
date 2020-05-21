@@ -201,6 +201,19 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "Apps/SimplePower")
 ```
 
+### nLarge
+
+<img src="Figures/nLarge.jpg" width="400" align="right">
+
+- A lot of places say that the normal approximation works when n is "Large", then say that 30 or 40 or 50 is large. 
+- This app shows what happens in the most skewed distributions, and how the CLT still applies when the population is far from normal.
+- Note that the normal approximation is actually biased, and this bias decreases as n increases.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/nLarge")
+```
+
 ### Animations/transform_norm
 
 Animation for transformation of normal to lognormal. 
