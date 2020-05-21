@@ -181,10 +181,24 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 - Demonstrating the concept of conditional distributions using the bivariate normal.
 - Uses the `rgl` library to display the bivariate normal.
 - Unfortunately, the rotation resets each time and I don't know how to fix this.
+- ConditionalNormal also exists, which does not have an interactive 3D plot (uses static plots from `plot3D`).
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/ConditionalNormal2")
+```
+
+### SimplePower
+
+<img src="Figures/SimplePower.jpg" width="400" align="right">
+
+- A visualization for power in the simple null/alternate situation.
+    - Others have made this before, but this one is mine.
+- Purple shaded area is Type 1 error, green shaded area is 1 - Type 2 error.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/SimplePower")
 ```
 
 ### Animations/transform_norm

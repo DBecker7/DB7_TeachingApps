@@ -55,6 +55,10 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/ConditionalNormal2")
 
+# Power
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/SimplePower")
+
 
 
 # Spatial Passion Projects ----
