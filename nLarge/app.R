@@ -49,9 +49,8 @@ server <- function(input, output) {
         lam <- input$lam
         n <- input$n
         
-        bigxseq <- seq(0,20,0.1)
-        bigyseq <- dexp(bigxseq, lam)
-        maxx <- bigxseq[max(which(bigyseq/max(bigyseq) > 0.01))]
+        # Find reasonable x values
+        maxx <- qexp(0.99, lam)
         
         xseq <- seq(0.01,maxx,0.01)
         expseq <- dexp(xseq, lam)
