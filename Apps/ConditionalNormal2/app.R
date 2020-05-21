@@ -9,26 +9,16 @@
 library(mvtnorm)
 library(shiny)
 library(ggplot2)
-library(plot3D)
 library(rgl)
 library(patchwork)
-library(shinyRGL)
-library(MASS)
 
-library(mvtnorm)
 
 
 myx <- seq(-4,4,0.2)
 mymat <- expand.grid(x = myx, y = myx)
-sigma <- matrix(c(2,1,1,2), ncol = 2)
-z <- dmvnorm(mymat, sigma = sigma)
-z2 <- matrix(z, ncol = length(myx), byrow = FALSE)
-cols <- cut(z2, breaks = 20, labels = FALSE)
 
-myx <- seq(-4,4,0.2)
-mymat <- expand.grid(x = myx, y = myx)
 
-userMatrix <- matrix(c(1,0,0,0,0,0.34,-0.94,0,0,0.94,0.34,0,0,0,0,1), ncol = 4)
+userMatrix <- matrix(c(0.86,0.4,-0.3,0, -0.5,0.65,-0.57,0, 0,0.65,0.75,0, 0,0,0,1), ncol = 4)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -59,7 +49,7 @@ ui <- fluidPage(
         # Show a plot of the generated distribution
         mainPanel(
             rglwidgetOutput("distPlot", height = "400px"),
-            plotOutput("plot2")
+            plotOutput("plot2", height = "200px")
         )
     )
 )
@@ -78,28 +68,30 @@ server <- shinyServer(function(input, output) {
         ind <- min(which(myx >= input$x))
         indy <- min(which(myx >= input$y))
         z2 <- z2()
+        cols <- cut(z2, breaks = 20, labels = FALSE)
         
-        open3d(userMatrix = userMatrix)
-        par3d(userMatrix = userMatrix)
         persp3d(myx, myx, z2, col = terrain.colors(max(cols))[cols], 
             xlab = "x", ylab = "y", zlab = "z")
         lines3d(x = myx[ind], y = myx, z = z2[ind,], lwd = 3, col = "blue")
         lines3d(x = myx, y = myx[indy], z = z2[,indy], lwd = 3, col = "darkorchid")
+        
         save <- options(rgl.inShiny = TRUE)
         on.exit(options(save))
+        
         par3d(userMatrix = userMatrix)
-        scene3d()
+        
+        scene1a <- scene3d()
+        rgl.close()
+        return(scene1a)
     })
     
     output$distPlot <- renderRglwidget({
         ind <- min(which(myx >= input$x))
         indy <- min(which(myx >= input$y))
         z2 <- z2()
-        par3d(userMatrix = userMatrix)
+        
         scene1 <- scene1()
-        par3d(userMatrix = userMatrix)
-        userMatrix <<- par3d()$userMatrix
-        rgl.close()
+        
         rglwidget(scene1)
     })
     
@@ -108,15 +100,14 @@ server <- shinyServer(function(input, output) {
         indy <- min(which(myx >= input$y))
         z2 <- z2()
         
-        
         gg1 <- ggplot() + geom_line(aes(x = myx, y = z2[ind,]), 
             size = 1, colour = "blue") + 
-            labs(title = "Y | X", x = "y") + 
+            labs(title = "Y | X", x = "y", y = paste0("f(y | x = ", ind)) + 
             coord_cartesian(ylim = c(0, max(z2))) + 
             theme_bw()
         gg2 <- ggplot() + geom_line(aes(x = myx, y = z2[,indy]), 
             size = 1, colour = "darkorchid") +
-            labs(title = "X | Y", x = "x") + 
+            labs(title = "X | Y", x = "x", y = paste0("f(x | y = ", indy)) + 
             coord_cartesian(ylim = c(0, max(z2))) + 
             theme_bw()
         
