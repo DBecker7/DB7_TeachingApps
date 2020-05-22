@@ -1,4 +1,6 @@
 set.seed(2112)
+library(gganimate)
+library(dplyr)
 g1 <- rnorm(400, 0, 1.5)
 g2 <- rnorm(400, 4, 1.5)
 
@@ -21,9 +23,7 @@ gnames <- c(paste0("Group 1: Var=", round(var(g1), 3)),
 allg <- data.frame(x = rep(g1dens$x, 3), y = c(g1dens$y, g2dens$y, g3dens$y),
     group = rep(gnames, each = length(g1dens$x)))
 
-ggplot(allg, aes(x = x, y = y, colour = group)) + geom_line(size = 1) +
-    theme_ft_rc() + scale_colour_excel()
-
+ggplot(allg, aes(x = x, y = y, colour = group)) + geom_line(size = 1) 
 
 
 allg$frame <- 1
@@ -33,7 +33,7 @@ allg2$x <- c(g1dens$x - mean(g1), g2dens$x - mean(g2), g3dens$x - mean(c(g1,g2))
 allg2$frame <- 2
 ggplot(allg2, aes(x = x, y = y, colour = group)) + geom_line()
 
-allt <- dplyr::bind_rows(allg, allg2)
+allt <- dbind_rows(allg, allg2)
 
 library(gganimate)
 ggplot(allt, aes(x = x, y = y, colour = group)) + 
@@ -45,7 +45,7 @@ ggplot(allt, aes(x = x, y = y, colour = group)) +
 allg3 <- data.frame(x = rep(g1dens$x, 3), y = rep(g3dens$y, 3), 
     group = rep(gnames, each = length(g1dens$x)), frame = 0)
 
-all3 <- dplyr::bind_rows(allg, allg2, allg3)
+all3 <- bind_rows(allg, allg2, allg3)
 ggplot(all3, aes(x = x, y = y, colour = group)) + 
     geom_line(size = 1.5) +
     scale_colour_manual(values = c(2, 4, 1)) + 

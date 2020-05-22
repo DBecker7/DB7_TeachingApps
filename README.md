@@ -25,7 +25,9 @@ You can copy and paste the code from here, or you can save <a href="https://gith
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#poissoncatquant">PoissonCatQuant</a>: Barplots versus histograms.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#Conditionalnormal2">ConditionalNormal2</a>: Visualization of conditional distributions.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#animationstransform_norm">Animations/transform_norm</a>: Script file to generate a transformation of a R.V.
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#BlockVariance">BlockVariance</a>: Blocking reduces variance.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#credit-where-credit-is-due">Credit where credit is due</a>: Teaching materials that I can't beat.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#spatial-stats-apps">Spatial Stats Apps</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausprocess_matern">GausProcess_Matern</a>: How Matern parameters affect a 1D Gaussian process.
@@ -312,8 +314,6 @@ anim_save("Animations/transform_norm.gif")
 ### BlockVariance
 
 <img src="Animations/BlockVariance.gif" align="right" width="400">
-
-- If two groups are different, then splitting them up will reduce the variance.
 
 ```r
 library(gganimate)
