@@ -8,7 +8,7 @@ You can copy and paste the code from here, or you can save <a href="https://gith
 
 ----
 
-## Quick reference
+## Quick Reference
 
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#tools">Tools</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#pnorm">pnorm</a>: Calculate and visualize normal probabilities.
@@ -28,9 +28,9 @@ You can copy and paste the code from here, or you can save <a href="https://gith
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#animationstransform_norm">Animations/transform_norm</a>: Script file to generate a transformation of a R.V.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#credit-where-credit-is-due">Credit where credit is due</a>: Teaching materials that I can't beat.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#spatial-stats-apps">Spatial Stats Apps</a>.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausprocess_matern">df</a>: .
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausfield_matern">ddf</a>: .
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#spatialfunkfunction">dddf</a>: .
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausprocess_matern">GausProcess_Matern</a>: How Matern parameters affect a 1D Gaussian process.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausfield_matern">GausField_Matern</a>: How Matern parameters affect a 2D Gaussian process.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#spatialfunkfunction">SpatialFun/Kfunciton</a>: A for loop to create an animation of a K-function.
 
 ----
 
@@ -403,7 +403,7 @@ boxes + histos +
 
 The following apps are for my own exploration of spatial statistics. Simulating the data and exploring the parameters is my favourite way to comprehend the underlying concepts.
 
-### GausProcesses_Matern
+### GausProcess_Matern
 
 GPs are vital to any spatial processes with a Gaussian term, so this app helps to understand how the parameters affect the process.
 
