@@ -344,11 +344,14 @@ allg2 <- allg
 allg2$x <- c(g1dens$x - mean(g1), g2dens$x - mean(g2), 
 g3dens$x - mean(c(g1,g2)))
 allg2$frame <- 2
-ggplot(allg2, aes(x = x, y = y, colour = group)) + geom_line()
+ggplot(allg2, aes(x = x, y = y, colour = group)) + 
+    geom_line()
 
 # 0th frame - all densities together
-allg0 <- data.frame(x = rep(g1dens$x, 3), y = rep(g3dens$y, 3), 
-    group = rep(gnames, each = length(g1dens$x)), frame = 0)
+allg0 <- data.frame(x = rep(g1dens$x, 3), 
+    y = rep(g3dens$y, 3), 
+    group = rep(gnames, each = length(g1dens$x)), 
+    frame = 0)
 
 all3 <- dplyr::bind_rows(allg, allg2, allg0)
 
