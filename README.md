@@ -242,11 +242,14 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "Apps/nLarge")
 ```
 
-### Animations/transform_norm
+## Animations
+
+### transform_norm
+
+<img src="Animations/transform_norm.gif" align="right" width="400">
 
 Animation for transformation of normal to lognormal. 
 
-<img src="Animations/transform_norm.gif" align="right" width="400">
 
 ```r
 library(dplyr)
@@ -305,6 +308,14 @@ ggplot(mydf, aes(x = x, y = y,
 
 anim_save("Animations/transform_norm.gif")
 ```
+
+### BlockVariance
+
+<img src="Animations/BlockVariance.gif" align="right" width="400">
+
+- If two groups are different, then splitting them up will reduce the variance.
+- Density plots are overlaid to demonstrate the difference in width.
+
 
 ----
 

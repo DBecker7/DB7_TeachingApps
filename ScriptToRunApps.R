@@ -19,6 +19,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 # Distribution shapes
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Tools/distrshapes")
+# Power
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/SimplePower")
 
 
 
@@ -47,9 +50,6 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 # Conditional Distributions
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/ConditionalNormal2")
-# Power
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "Apps/SimplePower")
 # How large must n be?
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/nLarge")
