@@ -69,6 +69,20 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "Tools/distrshapes")
 ```
 
+### SimplePower
+
+<img src="Figures/SimplePower.jpg" width="400" align="right">
+
+- A visualization for power in the simple null/alternate situation.
+    - Others have made this before, but this one is mine.
+- Purple shaded area is Type 1 error, green shaded area is 1 - Type 2 error.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/SimplePower")
+```
+
+----
 
 ## Self-Discovery Apps
 
@@ -188,18 +202,6 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "Apps/ConditionalNormal2")
 ```
 
-### SimplePower
-
-<img src="Figures/SimplePower.jpg" width="400" align="right">
-
-- A visualization for power in the simple null/alternate situation.
-    - Others have made this before, but this one is mine.
-- Purple shaded area is Type 1 error, green shaded area is 1 - Type 2 error.
-
-```r
-shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "Apps/SimplePower")
-```
 
 ### nLarge
 
@@ -277,6 +279,8 @@ ggplot(mydf, aes(x = x, y = y,
 
 anim_save("Animations/transform_norm.gif")
 ```
+
+----
 
 ## Credit where credit is due
 
