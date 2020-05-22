@@ -314,7 +314,60 @@ anim_save("Animations/transform_norm.gif")
 <img src="Animations/BlockVariance.gif" align="right" width="400">
 
 - If two groups are different, then splitting them up will reduce the variance.
-- Density plots are overlaid to demonstrate the difference in width.
+
+```r
+library(gganimate)
+set.seed(2112) # for reproducibility
+g1 <- rnorm(400, 0, 1.5)
+g2 <- rnorm(400, 4, 1.5)
+
+# Density estimates with same range/bandwidth
+g1dens <- density(g1, from = min(g1, g2),
+    to = max(g1,g2), n = 400)
+g2dens <- density(g2, from = min(g1, g2), 
+    to = max(g1,g2), n = 400, bw = g1dens$bw)
+g3dens <- density(c(g1,g2), from = min(g1, g2), 
+    to = max(g1,g2), n = 400, bw = g1dens$bw)
+
+# as a dataframe
+gnames <- c(paste0("Group 1: Var=", round(var(g1), 3)), 
+    paste0("Group 2: Var=", round(var(g2), 3)), 
+    paste0("Group 3 (Combined): Var=", 
+        round(var(c(g1, g2)), 3)))
+allg <- data.frame(x = rep(g1dens$x, 3), 
+    y = c(g1dens$y, g2dens$y, g3dens$y),
+    group = rep(gnames, each = length(g1dens$x)))
+allg$frame <- 1
+
+# centered
+allg2 <- allg
+allg2$x <- c(g1dens$x - mean(g1), g2dens$x - mean(g2), 
+g3dens$x - mean(c(g1,g2)))
+allg2$frame <- 2
+ggplot(allg2, aes(x = x, y = y, colour = group)) + geom_line()
+
+# 0th frame - all densities together
+allg0 <- data.frame(x = rep(g1dens$x, 3), y = rep(g3dens$y, 3), 
+    group = rep(gnames, each = length(g1dens$x)), frame = 0)
+
+all3 <- dplyr::bind_rows(allg, allg2, allg0)
+
+ggplot(all3, aes(x = x, y = y, colour = group)) + 
+    geom_line(size = 1.5) +
+    scale_colour_manual(values = c(2, 4, 1)) + 
+    transition_states(frame, wrap = FALSE) +
+    theme_bw() +
+    theme(legend.position = "bottom", 
+        axis.title = element_text(size = 14), 
+        title = element_text(size = 16),
+        axis.text = element_text(size = 12),
+        legend.text = element_text(size = 11)) + 
+    labs(x = "x", y = "Density", colour = NULL,
+        title = "Blocking reduces variance",
+        subtitle = "Individual densities have smaller variance than combined.") 
+
+anim_save("Animations/BlockVariance.gif")
+```
 
 
 ----

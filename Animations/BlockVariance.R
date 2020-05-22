@@ -1,3 +1,4 @@
+set.seed(2112)
 g1 <- rnorm(400, 0, 1.5)
 g2 <- rnorm(400, 4, 1.5)
 
@@ -36,15 +37,15 @@ allt <- dplyr::bind_rows(allg, allg2)
 
 library(gganimate)
 ggplot(allt, aes(x = x, y = y, colour = group)) + 
-    geom_line() +
-    transition_states(frame)
+    geom_line() #+
+    #transition_states(frame)
 
 
 
-alls <- data.frame(x = rep(g1dens$x, 3), y = rep(g3dens$y, 3), 
+allg3 <- data.frame(x = rep(g1dens$x, 3), y = rep(g3dens$y, 3), 
     group = rep(gnames, each = length(g1dens$x)), frame = 0)
 
-all3 <- dplyr::bind_rows(allg, allt, alls)
+all3 <- dplyr::bind_rows(allg, allg2, allg3)
 ggplot(all3, aes(x = x, y = y, colour = group)) + 
     geom_line(size = 1.5) +
     scale_colour_manual(values = c(2, 4, 1)) + 
@@ -57,9 +58,9 @@ ggplot(all3, aes(x = x, y = y, colour = group)) +
         legend.text = element_text(size = 11)) + 
     labs(x = "x", y = "Density", colour = NULL,
         title = "Blocking reduces variance",
-        subtitle = "Individual densities (red/blue) have smaller variance than combined (black).") 
+        subtitle = "Individual densities have smaller variance than combined.") 
 
 
-
+anim_save("Animations/BlockVariance.gif")
 
 
