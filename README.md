@@ -8,6 +8,32 @@ You can copy and paste the code from here, or you can save <a href="https://gith
 
 ----
 
+## Quick reference
+
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#tools">Tools</a>
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#pnorm">pnorm</a>: Calculate and visualize normal probabilities.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#pvalues">pvalues</a>: Calculate and visualize p-values (normal distr).
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#distrshapes">distrshapes</a>: How parameters affect shape of distribution.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#simplepower">SimplePower</a>: Calculate power for simple null/alt (normal distr).
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#self-discovery-apps">Self-Discovery Apps</a>:.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#poisbonapprox">PoisBinApprox</a>: Poisson (and normal) approximation to the binomial.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#QQDistrFittting">QQDistrFittting</a>: QQ Plots to test distributional assumptions.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#scattercorr">ScatterCorr</a>: Scatterplots with a fixed correlation.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#meanlessmeansleft">MeanLessMeansLeft</a>: Generate distribution with fixed mean and median.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#denshist">DensHist</a>: Compare density plots to histograms.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#measurespread">MeasureSpread</a>: Fixed IQR and SD.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#poissoncatquant">PoissonCatQuant</a>: Barplots versus histograms.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#Conditionalnormal2">ConditionalNormal2</a>: Visualization of conditional distributions.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#animationstransform_norm">Animations/transform_norm</a>: Script file to generate a transformation of a R.V.
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#credit-where-credit-is-due">Credit where credit is due</a>: Teaching materials that I can't beat.
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#spatial-stats-apps">Spatial Stats Apps</a>.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gaussprocess_matern">df</a>: .
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausfield_matern">ddf</a>: .
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#spatialfunkfunction">dddf</a>: .
+
+----
+
 <!--
 For Devan:
 
@@ -377,7 +403,7 @@ boxes + histos +
 
 The following apps are for my own exploration of spatial statistics. Simulating the data and exploring the parameters is my favourite way to comprehend the underlying concepts.
 
-### Gaussian Processes
+### GausProcesses_Matern
 
 GPs are vital to any spatial processes with a Gaussian term, so this app helps to understand how the parameters affect the process.
 
@@ -385,7 +411,7 @@ GPs are vital to any spatial processes with a Gaussian term, so this app helps t
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", subdir = "SpatialFun/GausProcess_Matern")
 ```
 
-### Gaussian Fields
+### GausField_Matern
 
 Like a Gaussian Process, but a field instead. Still based on Matern covariance.
 
