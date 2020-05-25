@@ -10,6 +10,71 @@ Distributions <- c("Normal(mu, sigma)", "Gamma(alpha, beta)", "Binomial(n,p)",
     "Lognormal(mu, sigma)")
 Theos <- c("Normal", "Gamma", "Binomial", "Exponential")
 
+
+parameter_tabs <- tagList(
+    tags$style("#params { display:none; }"),
+    tabsetPanel(id = "params",
+        tabPanel("Normal",
+            sliderInput("mean", "mean", min = -5, max = 5, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600)),
+            sliderInput("sd", "standard deviation", min = 0.01, max = 10, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600))
+        ),
+        tabPanel("Lognormal",
+            sliderInput("lmean", "mean", min = -5, max = 5, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600)),
+            sliderInput("lsd", "standard deviation", min = 0.01, max = 10, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600))
+        ),
+        tabPanel("Uniform", 
+            sliderInput("min", "min", min = -5, max = 5, 
+                value = 0, step = 0.1,
+                animate = list(interval = 600)),
+            sliderInput("max", "max", min = -5, max = 5, 
+                value = 1, step = 0.1,
+                animate = list(interval = 600))
+        ),
+        tabPanel("Exponential",
+            sliderInput("rate", "rate", min = 0, max = 20, 
+                value = 1, step = 0.1,
+                animate = list(interval = 600))
+        ),
+        tabPanel("Poisson",
+            sliderInput("prate", "rate", min = 0, max = 30, 
+                value = 1, step = 0.1,
+                animate = list(interval = 600))
+        ),
+        tabPanel("Binomial",
+            sliderInput("p", "p", min = 0, max = 1, 
+                value = 0.5, step = 0.01,
+                animate = list(interval = 600)),
+            sliderInput("nbin", "n", min = 1, max = 200, 
+                value = 20, step = 1,
+                animate = list(interval = 600))
+        ),
+        tabPanel("Gamma",
+            sliderInput("gshape", "shape", min = 0, max = 20, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600)),
+            sliderInput("grate", "rate",  min = 0, max = 20, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600))
+        ),
+        tabPanel("Beta",
+            sliderInput("bshape1", "shape 1", min = 0, max = 20, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600)),
+            sliderInput("bshape2", "shape 2", min = 0, max = 20, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600))
+        )
+    )
+)
+
 ui <- fluidPage(
     
     # Application title
@@ -17,19 +82,15 @@ ui <- fluidPage(
     
     sidebarLayout(
         sidebarPanel(
-            selectInput(inputId = "rdist", 
-                label = "Distribution to Sample From", 
-                choices = Distributions, 
-                selected = Distributions[1]),
+            selectInput("rdist", "Distribution", 
+                choices = c("Normal", "Uniform", "Exponential", "Gamma", 
+                    "Beta", "Binomial", "Poisson")
+            ),
+            parameter_tabs,
             selectInput(inputId = "qdist", 
                 label = "Theoretical Distr. to Compare To", 
                 choices = Theos, 
                 selected = Theos[1]),
-            "Note: Parameters may be truncated to appropriate parameter space.",
-            sliderInput(inputId = "mu", label = "First Parameter", 
-                min = -2, max = 20, value = 0.5, step = 0.05),
-            sliderInput(inputId = "sigma", label = "Second Parameter", 
-                min = -2, max = 20, value = 1.5, step = 0.05),
             "Changing the number of bins does not generate new data.",
             sliderInput(inputId = "bins", label = "Histogram Bins", 
                 min = 5, max = 40, value = 10, step = 1),
@@ -50,68 +111,60 @@ ui <- fluidPage(
     )
 )
 
-server <- function(input, output) {
+server <- function(input, output, session) {
+    observeEvent(input$rdist, {
+        updateTabsetPanel(session, "params", selected = input$rdist)
+    }) 
     
     rdistr <- reactive({
         dummy <- input$doit
         n <- input$n
-        if(input$rdist == "Normal(mu, sigma)"){
-            sigma <- ifelse(input$sigma <= 0, 0.001, input$sigma)
-            mu <- input$mu
-            ysamp <- sort(rnorm(n, mu, sigma))
-            subtit <- bquote(mu*" = "*.(mu)*", "*sigma^2*"="*.(sigma^2)*
+        if(input$rdist == "Normal"){
+            ysamp <- sort(rnorm(n, input$mean, input$sd))
+            subtit <- bquote(input$mean*" = "*.(input$mean)*", "*input$sd^2*"="*.(input$sd^2)*
                     ", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
-        } else if(input$rdist == "Gamma(alpha, beta)"){
-            shape <- input$mu
+        } else if(input$rdist == "Gamma"){
+            shape <- input$gshape
             if(shape <= 0) shape <- 0.001
-            rate <- input$sigma
+            rate <- input$grate
             if(rate <= 0) rate <- 0.001
             ysamp <- sort(rgamma(n, shape, rate))
             subtit <- bquote(alpha*"="*.(round(shape, 3))*", "*beta*
                     "="*.(round(rate, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
-        } else if(input$rdist == "Binomial(n,p)"){
-            mu <- input$sigma
-            sigma <- input$mu
-            if(mu <= 0) mu <- 0.001
-            p <- mu
-            if(p <= 0) p <- 0.001
-            if(p >= 1) p <- 0.999
-            m <- round(sigma)
-            if(m <= 0) m <- 1
-            ysamp <- sort(rbinom(n, m, p))
-            subtit <- bquote(p*"="*.(round(p, 3))*", ntrials="*.(round(m, 3))*
+        } else if(input$rdist == "Binomial"){
+            ysamp <- sort(rbinom(input$n, input$nbin, input$p))
+            subtit <- bquote(input$p*"="*.(round(input$p, 3))*", ntrials="*.(round(input$nbin, 3))*
                     ", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
-        } else if(input$rdist == "Poisson(lambda)"){
-            mu <- input$mu
-            if(mu <= 0) mu <- 0.001
-            ysamp <- sort(rpois(n, mu))
-            subtit <- bquote(lambda*"="*.(round(mu, 3))*", n="*.(n))
+        } else if(input$rdist == "Poisson"){
+            ysamp <- sort(rpois(n, input$prate))
+            subtit <- bquote(lambda*"="*.(round(input$prate, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
-        } else if(input$rdist == "Exponential(lambda)"){
-            mu <- input$mu
-            if(mu <= 0) mu <- 0.001
-            lambda <- mu
+        } else if(input$rdist == "Exponential"){
+            lambda <- input$rate
             ysamp <- sort(rexp(n, lambda))
             subtit <- bquote(lambda*"="*.(round(lambda, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
-        } else if(input$rdist == "Beta(alpha, beta)"){
-            shape1 <- input$mu
-            shape2 <- input$sigma
-            if(shape1 <= 0) shape1 <- 0.001
-            if(shape2 <= 0) shape2 <- 0.001
+        } else if(input$rdist == "Beta"){
+            shape1 <- input$bshape1
+            shape2 <- input$bshape2
             ysamp <- sort(rbeta(n, shape1, shape2))
             subtit <- bquote(alpha*"="*.(round(shape1, 3))*", "*beta*"="
                 *.(round(shape2, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
-        } else if(input$rdist == "Lognormal(mu, sigma)"){
-            sigma <- ifelse(input$sigma <= 0, 0.001, input$sigma)
-            mu <- input$mu
+        } else if(input$rdist == "Lognormal"){
+            sigma <- input$lsd
+            mu <- input$lmean
             ysamp <- sort(rlnorm(n, mu, sqrt(sigma)))
             subtit <- bquote(mu*"="*.(round(mu, 3))*", "*sigma^2*"="
                 *.(round(sigma^2, 3))*", n="*.(n))
+            list(ysamp = ysamp, subtit = subtit)
+        } else if(input$rdist == "Uniform"){
+            ysamp <- sort(runif(n, input$min, input$max))
+            subtit <- bquote("min="*.(round(input$min, 3))*", max="
+                *.(round(input$max, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
         }
     })
@@ -179,7 +232,7 @@ server <- function(input, output) {
         
         ghist <- ggplot() + 
             geom_histogram(aes(x = ysamp, y = ..density..), 
-                bins = input$bins, fill = "lightgrey", colour = 1) +
+                bins = input$bins, fill = "lightgrey", colour = 1, boundary = 0) +
             geom_line(aes(x = xtheo, y = dtheo), colour = "red", size = 1) +
             theme_bw() + 
             theme(title = element_text(size = 16), 
