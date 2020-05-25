@@ -342,7 +342,7 @@ allg$frame <- 1
 # centered
 allg2 <- allg
 allg2$x <- c(g1dens$x - mean(g1), g2dens$x - mean(g2), 
-g3dens$x - mean(c(g1,g2)))
+    g3dens$x - mean(c(g1,g2)))
 allg2$frame <- 2
 ggplot(allg2, aes(x = x, y = y, colour = group)) + 
     geom_line()
