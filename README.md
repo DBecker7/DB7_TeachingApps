@@ -24,6 +24,7 @@ You can copy and paste the code from here, or you can save <a href="https://gith
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#measurespread">MeasureSpread</a>: Fixed IQR and SD.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#poissoncatquant">PoissonCatQuant</a>: Barplots versus histograms.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#Conditionalnormal2">ConditionalNormal2</a>: Visualization of conditional distributions.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#indep">indep</a>: Visualization of independence.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
@@ -228,6 +229,20 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/ConditionalNormal2")
+```
+
+### indep
+
+<img src="Figures/indep.jpg" width="400" align="right">
+
+- Showing that independence doesn't look like anything special.
+- When changing P(A) and P(B), P(A and B) is automatically set to a value that makes them independent.
+- After that, P(A and B) can be changed.
+- Things change when the user chooses disjoint sets or sets either P(A) or P(B) to 0
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/indep")
 ```
 
 
