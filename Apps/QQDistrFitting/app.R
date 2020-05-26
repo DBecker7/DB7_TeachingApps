@@ -8,7 +8,7 @@ library(patchwork)
 Distributions <- c("Normal(mu, sigma)", "Gamma(alpha, beta)", "Binomial(n,p)", 
     "Poisson(lambda)", "Exponential(lambda)", "Beta(alpha, beta)", 
     "Lognormal(mu, sigma)")
-Theos <- c("Normal", "Gamma", "Binomial", "Exponential")
+Theos <- c("Normal", "Gamma", "Binomial", "Exponential", "Beta")
 
 
 parameter_tabs <- tagList(
@@ -105,7 +105,8 @@ ui <- fluidPage(
 	<li>Which distribution(s) can NEVER be approximated by the normal distribition?</li>
 	<li>What do discrete variables look like in the QQ plot?</li>
 	<li>Do all normal samples look normal in a QQ plot? How much deviation should we tolerate in the QQ plot before we say that data isn't normal?</li>
-	<li>Fro each distribution, find a parameter combination where the resulting sample is well approximated by the normal distribution. Try the same with the exponential distribution.</li>
+	<li>For each distribution, find a parameter combination where the resulting sample is well approximated by the normal distribution. Try the same with the exponential distribution.</li>
+	<li>Set the theortical distribution to Beta, then try and find a parameter combination for each other distribution such that the Beta distribution approximates it well.</li>
 </ul>"))
         )
     )
@@ -221,6 +222,20 @@ server <- function(input, output, session) {
             xtheo <- c(rep(xtheo1, each = 3)[-1], max(xtheo1), max(xtheo1))
             theotit <- paste0("Histogram of ", input$rdist, " sample with Binom(", 
                 round(pbar, 3), ",", round(mbar, 2), ") Density Curve")
+        } else if(input$qdist == "Beta"){
+            s1bar <- xbar*(xbar*(1-xbar)/sd2^2 - 1)
+            s2bar <- (1 - xbar)*(xbar*(1-xbar)/sd2^2 - 1)
+            if(s1bar < 0) s1bar <- 0.0001
+            if(s2bar < 0) s2bar <- 0.0001
+            suppressWarnings({
+            xquant <- qbeta(ppoints(ysamp), shape1 = s1bar, shape2 = s2bar)
+            x1 <- qbeta(c(0.25,0.75), shape1 = s1bar, shape2 = s2bar)
+            xtheo <- seq(from = min(ysamp, na.rm = TRUE), to = max(ysamp, na.rm = TRUE), 
+                length.out = 200)
+                dtheo <- dbeta(xtheo, shape1 = s1bar, shape2 = s2bar)
+            })
+            theotit <- paste0("Histogram of ", input$rdist, " sample with Beta(", 
+                round(s1bar, 2), ", ", round(s2bar, 2), ") Density Curve")
         }
         
         y1 <- quantile(ysamp, probs = c(0.25,0.75), names = FALSE)
