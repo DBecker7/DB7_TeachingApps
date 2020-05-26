@@ -236,6 +236,15 @@ server <- function(input, output, session) {
             text(x = x2just+0.6, y = -0.25, labels = "P(B)", cex = 1.25, col = "blue")
             text(x = x1just-0.2, y = 0.4, labels = "P(A and B)", cex = 1.25, col = 1)
             text(x = x2just+0.1, y = 0.4, labels = "P(A and B)", cex = 1.25, col = 1)
+            
+        } else if(PA == 0 & PB ==0){
+            
+            plot(NULL, ylim = c(-0.2, 0.2),
+                xlim = c(-1,1), 
+                asp = 1, xaxt = "n", yaxt = "n", bty = "n",
+                xlab = "", ylab = "")
+            text(0, 0, labels = "P(A) * P(B) = 0 = P(A and B), but\nP(A|B) = P(A and B) / P(B) is undefined.\nIndependence is defined as P(A|B) = P(A), so\nindependence is not defined here.", cex = 1.5)
+            
         } else {
             
             r_1 <- max(sqrt(PA/pi), sqrt(PB/pi))
