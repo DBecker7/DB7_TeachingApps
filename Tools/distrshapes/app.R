@@ -31,6 +31,14 @@ parameter_tabs <- tagList(
             sliderInput("grate", "rate",  min = 0, max = 20, 
                 value = 1, step = 0.01,
                 animate = list(interval = 600))
+        ),
+        tabPanel("beta",
+            sliderInput("bshape1", "shape 1", min = 0, max = 20, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600)),
+            sliderInput("bshape2", "shape 2",  min = 0, max = 20, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600))
         )
     )
 )
@@ -41,7 +49,7 @@ ui <- fluidPage(
     sidebarLayout(
         sidebarPanel(
             selectInput("dist", "Distribution", 
-                choices = c("normal", "uniform", "exponential", "gamma")
+                choices = c("normal", "uniform", "exponential", "gamma", "beta")
             ),
             numericInput("n", "Number of samples", value = 100),
             sliderInput("bins", "binwidth", min = 0.1, max = 5, value = 1, step = 0.1),
@@ -76,7 +84,8 @@ server <- function(input, output, session) {
             normal = rnorm(input$n, input$mean, input$sd),
             uniform = runif(input$n, input$min, input$max),
             exponential = rexp(input$n, input$rate),
-            gamma = rgamma(input$n, shape = input$gshape, rate = input$grate)
+            gamma = rgamma(input$n, shape = input$gshape, rate = input$grate),
+            beta = rbeta(input$n, shape1 = input$bshape1, shape2 = input$bshape2)
         )
     })
     
@@ -89,7 +98,8 @@ server <- function(input, output, session) {
             uniform = c(min(unifs), max(unifs)),
             exponential = c(0, 5/input$rate),
             #gamma = c(0,forgamma[min(which(mydgamma < 0.005))])
-            gamma = c(0, ifelse(input$grate < 0.2, 600, 100))
+            gamma = c(0, ifelse(input$grate < 0.2, 600, 100)),
+            beta = c(0, 1)
         )
         
         xseq <- seq(lohi[1], lohi[2], length.out = 500)
@@ -99,7 +109,8 @@ server <- function(input, output, session) {
             normal = dnorm(xseq, input$mean, input$sd),
             uniform = dunif(xseq, min(unifs), max(unifs)),
             exponential = dexp(xseq, input$rate),
-            gamma = dgamma(xseq, shape = input$gshape, rate = input$grate)
+            gamma = dgamma(xseq, shape = input$gshape, rate = input$grate),
+            beta = dbeta(xseq, shape1 = input$bshape1, shape2 = input$bshape2)
         )
         data.frame(x = xseq, y = yseq)
     })
@@ -133,7 +144,8 @@ server <- function(input, output, session) {
                 normal = bquote("f(x)=("*2*pi*sigma^2*")"^{n/2}*exp(-(x*"-"*mu)^2/(2*sigma^2))),
                 uniform = bquote("f(x)="*1/(b-a)),
                 exponential = bquote("f(x)="*lambda*exp(-lambda*x)),
-                gamma = bquote("f(x)="*beta^alpha*x^{alpha-1}*exp(-beta*x)/Gamma(alpha))
+                gamma = bquote("f(x)="*beta^alpha*x^{alpha-1}*exp(-beta*x)/Gamma(alpha)),
+                beta = bquote("f(x)="*Gamma(alpha*"+"*beta)*x^{alpha-1}*(1-x)^{beta-1}/(Gamma(alpha)*Gamma(beta)))
             ),
             bty = "n", text.col = 4, cex = 1)
         
