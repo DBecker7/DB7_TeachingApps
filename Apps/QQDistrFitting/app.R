@@ -64,6 +64,14 @@ parameter_tabs <- tagList(
                 value = 1, step = 0.01,
                 animate = list(interval = 600))
         ),
+        tabPanel("Weibull",
+            sliderInput("wshape", "shape", min = 0, max = 20, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600)),
+            sliderInput("wscale", "scale",  min = 0, max = 20, 
+                value = 1, step = 0.01,
+                animate = list(interval = 600))
+        ),
         tabPanel("Beta",
             sliderInput("bshape1", "shape 1", min = 0, max = 20, 
                 value = 1, step = 0.01,
@@ -84,7 +92,7 @@ ui <- fluidPage(
         sidebarPanel(
             selectInput("rdist", "Distribution", 
                 choices = c("Normal", "Uniform", "Exponential", "Gamma", 
-                    "Beta", "Binomial", "Poisson")
+                    "Beta", "Weibull", "Binomial", "Poisson")
             ),
             parameter_tabs,
             selectInput(inputId = "qdist", 
@@ -166,6 +174,11 @@ server <- function(input, output, session) {
             ysamp <- sort(runif(n, input$min, input$max))
             subtit <- bquote("min="*.(round(input$min, 3))*", max="
                 *.(round(input$max, 3))*", n="*.(n))
+            list(ysamp = ysamp, subtit = subtit)
+        } else if(input$rdist == "Weibull"){
+            ysamp <- sort(rweibull(n, shape = input$wshape, scale = input$wscale))
+            subtit <- bquote("shape="*.(round(input$wshape, 3))*", scale="
+                *.(round(input$wscale, 3))*", n="*.(n))
             list(ysamp = ysamp, subtit = subtit)
         }
     })
