@@ -13,7 +13,7 @@ parameter_tabs <- tagList(
         ),
         tabPanel("uniform", 
             sliderInput("min", "min", min = -5, max = 5, 
-                value = 1, step = 0.1,
+                value = 0, step = 0.1,
                 animate = list(interval = 600)),
             sliderInput("max", "max", min = -5, max = 5, 
                 value = 1, step = 0.1,
