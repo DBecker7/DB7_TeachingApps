@@ -247,10 +247,14 @@ server <- function(input, output, session) {
             
         } else {
             
-            r_1 <- max(sqrt(PA/pi), sqrt(PB/pi))
+            r_1 <- sqrt(PA/pi)
+            r_2 <- sqrt(PB/pi)
             lab2 <- c("P(A)", "P(B)")[which.max(c(r_1, r_2))]
             col1 <- c(2,4)[which.max(c(r_1, r_2))]
             col2 <- c(rgb(1,0,0,0.2),rgb(0,0,1,0.2))[which.max(c(r_1, r_2))]
+            
+            r_1 <- max(sqrt(PA/pi), sqrt(PB/pi))
+            #r_2 <- min(sqrt(PA/pi), sqrt(PB/pi))
             
             x1a <- seq(-r_1, r_1, length.out = 100)
             y1a <-  sqrt(round(r_1^2 - x1a^2, 4))
