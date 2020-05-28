@@ -37,14 +37,41 @@ server <- function(input, output) {
         yrib <- dnorm(xrib)
         
         if(lo > -4 & hi < 4){
-            mytitle <- paste0("pnorm(", hi, ") - pnorm(",lo,") = ", round(pnorm(hi) - pnorm(lo), 4))
+            mytitle <- paste0("pnorm(", hi, ") - pnorm(",lo,") = ", 
+                round(pnorm(hi) - pnorm(lo), 4))
             addtox <- c(lo, hi)
+            arrows <- list(
+                annotate("segment", x = c(lo, hi), y = c(-0.05, -0.1),  size = 0.8, 
+                    colour = "darkorchid",
+                    xend = c(-4,-4), yend = c(-0.05, -0.1), arrow = arrow()),
+                annotate("text", x = mean(c(lo, -4)), y = -0.05, vjust = -0.5, 
+                    label = paste0("pnorm(", lo, ")=", round(pnorm(lo), 3))),
+                annotate("text", x = mean(c(hi, -4)), y = -0.1, vjust = -0.5, 
+                    label = paste0("pnorm(", hi, ")=", round(pnorm(hi), 3)))
+            )
         } else if(hi < 4){
             mytitle <- paste0("pnorm(", hi, ") = ", round(pnorm(hi), 4))
             addtox <- hi
+            ydouble <- c(0,0)
+            arrows <- list(
+                annotate("segment", x = hi, y = -0.05,  size = 0.8, 
+                    colour = "darkorchid",
+                    xend = -4, yend = -0.05, arrow = arrow()),
+                annotate("text", x = mean(c(hi, -4)), y = -0.05, vjust = -0.5, 
+                    label = paste0("pnorm(", hi, ")=", round(pnorm(hi), 3)))
+            )
         } else {
-            mytitle <- paste0("1 - pnorm(", lo, ") = ", round(1 - pnorm(lo), 4))
+            mytitle <- paste0("1 - pnorm(", lo, ") = ", 
+                round(1 - pnorm(lo), 4))
             addtox <- lo
+            ydouble <- c(0,0)
+            arrows <- list(
+                annotate("segment", x = lo, y = -0.05, size = 0.8, 
+                    colour = "darkorchid",
+                    xend = -4, yend = -0.05, arrow = arrow()),
+                annotate("text", x = mean(c(lo, -4)), y = -0.05, vjust = -0.5, 
+                    label = paste0("pnorm(", lo, ")=", round(pnorm(lo), 3)))
+            )
         }
         
         ggplot() + 
@@ -58,7 +85,8 @@ server <- function(input, output) {
             labs(x = "x", y = "dnorm(x)", title = mytitle,
                 caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") + 
             theme(title = element_text(size = 16), 
-                axis.text = element_text(size = 14)) 
+                axis.text = element_text(size = 14)) +
+            arrows
     })
 }
 
