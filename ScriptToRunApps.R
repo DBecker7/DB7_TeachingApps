@@ -53,6 +53,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 # How large must n be?
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/nLarge")
+# Z or t??
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/Z_or_t")
 
 
 # Spatial Passion Projects ----

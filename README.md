@@ -26,6 +26,7 @@ You can copy and paste the code from here, or you can save <a href="https://gith
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#Conditionalnormal2">ConditionalNormal2</a>: Visualization of conditional distributions.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#indep">indep</a>: Visualization of independence.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#Z_or_t">Z_or_t</a>: How large must *n* be for normal p-value?.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#BlockVariance">BlockVariance</a>: Blocking reduces variance.
@@ -257,6 +258,18 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/nLarge")
+```
+
+### Z_or_t
+
+<img src="Figures/Z_or_t.jpg" width="400" align="right">
+
+- Another way to test what counts as a "large" n.
+- Should you use the normal distribution or the t distribution?
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/Z_or_t")
 ```
 
 ## Animations
