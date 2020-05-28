@@ -20,23 +20,23 @@ parameter_tabs <- tagList(
                 animate = list(interval = 600))
         ),
         tabPanel("exponential",
-            sliderInput("rate", "rate", min = 0, max = 20, 
+            sliderInput("rate", "rate", min = 0.01, max = 20, 
                 value = 1, step = 0.1,
                 animate = list(interval = 600))
         ),
         tabPanel("gamma",
-            sliderInput("gshape", "shape", min = 0, max = 20, 
+            sliderInput("gshape", "shape", min = 0.01, max = 20, 
                 value = 1, step = 0.01,
                 animate = list(interval = 600)),
-            sliderInput("grate", "rate",  min = 0, max = 20, 
+            sliderInput("grate", "rate",  min = 0.01, max = 20, 
                 value = 1, step = 0.01,
                 animate = list(interval = 600))
         ),
         tabPanel("beta",
-            sliderInput("bshape1", "shape 1", min = 0, max = 20, 
+            sliderInput("bshape1", "shape 1", min = 0.01, max = 20, 
                 value = 1, step = 0.01,
                 animate = list(interval = 600)),
-            sliderInput("bshape2", "shape 2",  min = 0, max = 20, 
+            sliderInput("bshape2", "shape 2",  min = 0.01, max = 20, 
                 value = 1, step = 0.01,
                 animate = list(interval = 600))
         )
