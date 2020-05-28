@@ -4,47 +4,47 @@ parameter_tabs <- tagList(
     tags$style("#params { display:none; }"),
     tabsetPanel(id = "params",
         tabPanel("normal",
-            sliderInput("mean", "mean", min = -5, max = 5, 
+            sliderInput("mean", "mean  μ", min = -5, max = 5, 
                 value = 1, step = 0.05,
                 animate = list(interval = 600)),
-            sliderInput("sd", "standard deviation", min = 0.01, max = 10, 
+            sliderInput("sd", "standard deviation  σ", min = 0.01, max = 10, 
                 value = 1, step = 0.01,
                 animate = list(interval = 600))
         ),
         tabPanel("uniform", 
-            sliderInput("min", "min", min = -5, max = 5, 
+            sliderInput("min", "min a", min = -5, max = 5, 
                 value = 0, step = 0.1,
                 animate = list(interval = 600)),
-            sliderInput("max", "max", min = -5, max = 5, 
+            sliderInput("max", "max b", min = -5, max = 5, 
                 value = 1, step = 0.1,
                 animate = list(interval = 600))
         ),
         tabPanel("exponential",
-            sliderInput("rate", "rate", min = 0.01, max = 20, 
+            sliderInput("rate", "rate λ", min = 0.01, max = 20, 
                 value = 1, step = 0.1,
                 animate = list(interval = 600))
         ),
         tabPanel("gamma",
-            sliderInput("gshape", "shape", min = 0.05, max = 20, 
+            sliderInput("gshape", "shape α", min = 0.05, max = 20, 
                 value = 1, step = 0.05,
                 animate = list(interval = 600)),
-            sliderInput("grate", "rate",  min = 0.05, max = 20, 
+            sliderInput("grate", "rate β",  min = 0.05, max = 20, 
                 value = 1, step = 0.05,
                 animate = list(interval = 600))
         ),
         tabPanel("beta",
-            sliderInput("bshape1", "shape 1", min = 0.01, max = 20, 
+            sliderInput("bshape1", "shape 1 α", min = 0.01, max = 20, 
                 value = 1, step = 0.05,
                 animate = list(interval = 600)),
-            sliderInput("bshape2", "shape 2",  min = 0.05, max = 20, 
+            sliderInput("bshape2", "shape 2 β",  min = 0.05, max = 20, 
                 value = 1, step = 0.05,
                 animate = list(interval = 600))
         ),
         tabPanel("weibull",
-            sliderInput("wshape", "shape", min = 0.05, max = 20, 
+            sliderInput("wshape", "shape k", min = 0.05, max = 20, 
                 value = 1, step = 0.05,
                 animate = list(interval = 600)),
-            sliderInput("wscale", "scale",  min = 0.05, max = 20, 
+            sliderInput("wscale", "scale λ",  min = 0.05, max = 20, 
                 value = 1, step = 0.05,
                 animate = list(interval = 600))
         )
@@ -165,7 +165,7 @@ server <- function(input, output, session) {
                 exponential = bquote("f(x)="*lambda*exp(-lambda*x)),
                 gamma = bquote("f(x)="*beta^alpha*x^{alpha-1}*exp(-beta*x)/Gamma(alpha)),
                 beta = bquote("f(x)="*Gamma(alpha*"+"*beta)*x^{alpha-1}*(1-x)^{beta-1}/(Gamma(alpha)*Gamma(beta))),
-                weibull = bquote("f(x)=")
+                weibull = bquote("f(x)="*(k/lambda)*(x/lambda)^{k-1}*exp(-(x/lambda)^k))
             ),
             bty = "n", text.col = 4, cex = 1)
         
