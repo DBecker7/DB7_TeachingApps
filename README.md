@@ -55,6 +55,21 @@ tags$div(HTML("Some questions:
     <li></li>
     <li></li>
 </ol>"))
+
+# From https://community.rstudio.com/t/shiny-slider-new-design/24765/4
+# After fluidPage(
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
+    
+    
 -->
 
 
