@@ -44,6 +44,7 @@ parameter_tabs <- tagList(
 )
 
 myseed <- 1
+setlist <- list(data.frame(x=NA, y = NA))
 
 ui <- fluidPage(
     sidebarLayout(
@@ -55,7 +56,7 @@ ui <- fluidPage(
             sliderInput("bins", "binwidth", min = 0.1, max = 5, value = 1, step = 0.1),
             parameter_tabs,
             actionButton("doit", "Click me for new data"),
-            actionButton("axes", "Reset axes")
+            actionButton("axes", "Reset axes and ghosts")
         ),
         mainPanel(
             plotOutput("hist")
@@ -75,6 +76,8 @@ server <- function(input, output, session) {
         xmin <<- 0
         xmax <<- 0
         ymax <<- 0
+        
+        setlist <<- list(data.frame(x=NA, y = NA))
     })
     
     sample <- reactive({
@@ -112,6 +115,10 @@ server <- function(input, output, session) {
             gamma = dgamma(xseq, shape = input$gshape, rate = input$grate),
             beta = dbeta(xseq, shape1 = input$bshape1, shape2 = input$bshape2)
         )
+        
+       
+        setlist <<- c(setlist, list(data.frame(x = xseq, y = yseq)))
+        
         data.frame(x = xseq, y = yseq)
     })
     newseed <- reactive({
@@ -120,11 +127,12 @@ server <- function(input, output, session) {
     })
     
     output$hist <- renderPlot({
+        axes()
+        
         x <- sample()
         d <- distfun()
         
         newseed()
-        axes()
         
         histbreaks <- seq(min(floor(x)), max(ceiling(x)) + input$bins, by = input$bins)
         
@@ -148,6 +156,11 @@ server <- function(input, output, session) {
                 beta = bquote("f(x)="*Gamma(alpha*"+"*beta)*x^{alpha-1}*(1-x)^{beta-1}/(Gamma(alpha)*Gamma(beta)))
             ),
             bty = "n", text.col = 4, cex = 1)
+        
+        print(length(setlist))
+        for(i in 1:length(setlist)){
+            lines(setlist[[i]], col = rgb(0,0,0,0.1))
+        }
         
         lines(d, col = 4,lwd = 2)
     }, res = 96)
