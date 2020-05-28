@@ -14,6 +14,16 @@ ui <- fluidPage(
     
     # Application title
     titlePanel("Z or t?"),
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
     
     # Sidebar with a slider input for number of bins 
     sidebarLayout(
@@ -36,7 +46,7 @@ ui <- fluidPage(
                 max = 5,
                 value = 1,
                 step = 0.05),
-            actionButton("doit", "Click me for new Sampling Distribution")
+            actionButton("doit", "Click for new Sampling Distribution")
         ),
         
         # Show a plot of the generated distribution

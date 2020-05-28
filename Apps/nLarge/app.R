@@ -16,6 +16,16 @@ ui <- fluidPage(
     
     # Application title
     titlePanel("How large must n be?"),
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
     
     # Sidebar with a slider input for number of bins 
     sidebarLayout(

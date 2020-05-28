@@ -7,6 +7,16 @@ ui <- fluidPage(
     
     # Application title
     titlePanel("Visualization of p-values"),
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
     
     sidebarLayout(
         sidebarPanel(
