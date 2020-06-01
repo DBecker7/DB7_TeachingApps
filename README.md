@@ -8,35 +8,6 @@ You can copy and paste the code from here, or you can save <a href="https://gith
 
 ----
 
-## Quick Reference
-
-- <a href="https://github.com/DBecker7/DB7_TeachingApps#tools">Tools</a>
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#pnorm">pnorm</a>: Calculate and visualize normal probabilities.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#pvalues">pvalues</a>: Calculate and visualize p-values (normal distr).
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#distrshapes">distrshapes</a>: How parameters affect shape of distribution.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#simplepower">SimplePower</a>: Calculate power for simple null/alt (normal distr).
-- <a href="https://github.com/DBecker7/DB7_TeachingApps#self-discovery-apps">Self-Discovery Apps</a>
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#poisbinapprox">PoisBinApprox</a>: Poisson (and normal) approximation to the binomial.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#qqdistrfitting">QQDistrFittting</a>: QQ Plots to test distributional assumptions.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#scattercorr">ScatterCorr</a>: Scatterplots with a fixed correlation.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#meanlessmeansleft">MeanLessMeansLeft</a>: Generate distribution with fixed mean and median.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#denshist">DensHist</a>: Compare density plots to histograms.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#measurespread">MeasureSpread</a>: Fixed IQR and SD.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#poissoncatquant">PoissonCatQuant</a>: Barplots versus histograms.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#Conditionalnormal2">ConditionalNormal2</a>: Visualization of conditional distributions.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#indep">indep</a>: Visualization of independence.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#Z_or_t">Z_or_t</a>: How large must *n* be for normal p-value?.
-- <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#BlockVariance">BlockVariance</a>: Blocking reduces variance.
-- <a href="https://github.com/DBecker7/DB7_TeachingApps#credit-where-credit-is-due">Credit where credit is due</a>: Teaching materials that I can't beat.
-- <a href="https://github.com/DBecker7/DB7_TeachingApps#spatial-stats-apps">Spatial Stats Apps</a>
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausprocess_matern">GausProcess_Matern</a>: How Matern parameters affect a 1D Gaussian process.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausfield_matern">GausField_Matern</a>: How Matern parameters affect a 2D Gaussian process.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#spatialfunkfunction">SpatialFun/Kfunciton</a>: A for loop to create an animation of a K-function.
-
-----
 
 <!--
 For Devan:
@@ -71,6 +42,37 @@ tags$div(HTML("Some questions:
     
     
 -->
+
+## Quick Reference
+
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#tools">Tools</a>
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#pnorm">pnorm</a>: Calculate and visualize normal probabilities.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#pvalues">pvalues</a>: Calculate and visualize p-values (normal distr).
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#distrshapes">distrshapes</a>: How parameters affect shape of distribution.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#simplepower">SimplePower</a>: Calculate power for simple null/alt (normal distr).
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#self-discovery-apps">Self-Discovery Apps</a>
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#poisbinapprox">PoisBinApprox</a>: Poisson (and normal) approximation to the binomial.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#qqdistrfitting">QQDistrFittting</a>: QQ Plots to test distributional assumptions.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#scattercorr">ScatterCorr</a>: Scatterplots with a fixed correlation.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#meanlessmeansleft">MeanLessMeansLeft</a>: Generate distribution with fixed mean and median.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#denshist">DensHist</a>: Compare density plots to histograms.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#measurespread">MeasureSpread</a>: Fixed IQR and SD.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#poissoncatquant">PoissonCatQuant</a>: Barplots versus histograms.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#Conditionalnormal2">ConditionalNormal2</a>: Visualization of conditional distributions.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#indep">indep</a>: Visualization of independence.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#Z_or_t">Z_or_t</a>: How large must *n* be for normal p-value?.
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#BlockVariance">BlockVariance</a>: Blocking reduces variance.
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#credit-where-credit-is-due">Credit where credit is due</a>: Teaching materials that I can't beat.
+- <a href="https://github.com/DBecker7/DB7_TeachingApps#spatial-stats-apps">Spatial Stats Apps</a>
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausprocess_matern">GausProcess_Matern</a>: How Matern parameters affect a 1D Gaussian process.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gausfield_matern">GausField_Matern</a>: How Matern parameters affect a 2D Gaussian process.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#spatialfunkfunction">SpatialFun/Kfunciton</a>: A for loop to create an animation of a K-function.
+
+----
+
 
 
 ## Tools
