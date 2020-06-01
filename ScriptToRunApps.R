@@ -21,7 +21,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
     subdir = "Tools/distrshapes")
 # Power
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "Apps/SimplePower")
+    subdir = "Tools/SimplePower")
 
 
 

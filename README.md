@@ -124,7 +124,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
-    subdir = "Apps/SimplePower")
+    subdir = "Tools/SimplePower")
 ```
 
 ----
