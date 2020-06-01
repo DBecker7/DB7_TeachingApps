@@ -8,6 +8,7 @@
 #
 
 library(shiny)
+library(ggplot2)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -31,7 +32,7 @@ ui <- fluidPage(
             sliderInput("n",
                 "Sample size:",
                 min = 2,
-                max = 60,
+                max = 80,
                 value = 8,
                 step = 1),
             sliderInput("mu",
@@ -52,7 +53,13 @@ ui <- fluidPage(
         # Show a plot of the generated distribution
         mainPanel(
             plotOutput("distPlot"),
-            verbatimTextOutput("vtout")
+            verbatimTextOutput("vtout"),
+            tags$div(HTML("Some questions:
+<ol><li>How does cahnging the mean and sd affect the sampling distribution of zobs?</li>
+    <li>If you use z instead of t, are you MORE or LESS likely to reject the null hypothesis?</li>
+    <li></li>
+    <li></li>
+</ol>"))
         )
     )
 )
@@ -73,6 +80,7 @@ server <- function(input, output) {
     
     output$distPlot <- renderPlot({
         input$doit
+        n <- input$n
         
         sampling_dist <- replicate(1000, {
             xsamp <- rnorm(input$n, input$mu, input$sigma)
