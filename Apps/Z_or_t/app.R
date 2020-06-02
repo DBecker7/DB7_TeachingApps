@@ -57,8 +57,6 @@ ui <- fluidPage(
             tags$div(HTML("Some questions:
 <ol><li>How does cahnging the mean and sd affect the sampling distribution of zobs?</li>
     <li>If you use z instead of t, are you MORE or LESS likely to reject the null hypothesis?</li>
-    <li></li>
-    <li></li>
 </ol>"))
         )
     )
