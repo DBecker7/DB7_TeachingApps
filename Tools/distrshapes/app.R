@@ -179,7 +179,6 @@ server <- function(input, output, session) {
             ),
             bty = "n", text.col = 4, cex = 1)
         
-        print(length(setlist))
         for(i in 1:length(setlist)){
             lines(setlist[[i]], col = rgb(0,0,0,0.1))
         }
