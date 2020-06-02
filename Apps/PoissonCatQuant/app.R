@@ -67,22 +67,24 @@ server <- function(input, output) {
     output$distPlot <- renderPlot({
         x <- xdata()
         
-        gghist <- ggplot() + geom_histogram(aes(x = x$x, y = ..density..), 
-            bins = input$bins, fill = "lightgrey", colour = 1) +
+        gghist <- ggplot(mapping = aes(x = x$x)) + 
+            geom_histogram(aes(x = x$x, y = ..density..), 
+                bins = input$bins, fill = "lightgrey", colour = 1) +
             theme_bw() +
             labs(x = "x", y = "Count", title = "Histogram") +
             stat_function(fun = function(y) {
                 dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
-            }, col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
+            }, col = 2, n = 600)
         
-        ggbar <- ggplot() + geom_bar(aes(x = x$x, y = ..prop..), 
-            fill = "lightgrey", colour = 1) +
+        ggbar <- ggplot(mapping = aes(x = x$x)) + 
+            geom_bar(aes(x = x$x, y = ..prop..), 
+                fill = "lightgrey", colour = 1) +
             theme_bw() +
             labs(x = "x", y = "Count", title = "Bar plot",
                 caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             stat_function(fun = function(y) {
                 dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
-            }, col = 2, n = 600, mapping = aes(x=min(x$x):max(x$x)))
+            }, col = 2, n = 600)
         
         gghist / ggbar
     })
