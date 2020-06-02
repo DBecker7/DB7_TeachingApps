@@ -137,7 +137,7 @@ server <- function(input, output, session) {
             weibull = dweibull(xseq, shape = input$wshape, scale = input$wscale)
         )
         
-       
+        
         setlist <<- c(setlist, list(data.frame(x = xseq, y = yseq)))
         
         data.frame(x = xseq, y = yseq)
@@ -174,7 +174,8 @@ server <- function(input, output, session) {
                 uniform = bquote("f(x)="*1/(b-a)),
                 exponential = bquote("f(x)="*lambda*exp(-lambda*x)),
                 gamma = bquote("f(x)="*beta^alpha*x^{alpha-1}*exp(-beta*x)/Gamma(alpha)),
-                beta = bquote("f(x)="*Gamma(alpha*"+"*beta)*x^{alpha-1}*(1-x)^{beta-1}/(Gamma(alpha)*Gamma(beta))),
+                beta = bquote("f(x)="*Gamma(alpha*"+"*beta)*x^{alpha-1}*
+                        (1-x)^{beta-1}/(Gamma(alpha)*Gamma(beta))),
                 weibull = bquote("f(x)="*(k/lambda)*(x/lambda)^{k-1}*exp(-(x/lambda)^k))
             ),
             bty = "n", text.col = 4, cex = 1)

@@ -155,6 +155,7 @@ server <- function(input, output, session) {
         xmax <<- max(xmax, x + 0.5, d$x + 0.5)
         ymax <<- max(ymax, d$y * input$n, table(x))
 
+
         mytitle <- paste0("Bar plot and PDF of ", input$dist)
 
         ggplot() +
@@ -178,7 +179,10 @@ server <- function(input, output, session) {
             theme(legend.position = "none") +
             coord_cartesian(xlim = c(xmin, xmax) + c(-0.5, 0.5),
                 ylim = c(0, ymax)) +
-            labs(title = mytitle)
+            labs(title = mytitle,
+                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
+            theme(title = element_text(size = 16),
+              axis.text = element_text(size = 14))
 
 
         #   for(i in 1:length(setlist)){
