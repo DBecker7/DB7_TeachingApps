@@ -71,10 +71,8 @@ server <- function(input, output) {
         if(input$addnorm) mytitle <- paste0(mytitle, 
             "; SSE(Normal) = ", round(normmse, 7))
         
-        ggplot() + 
-            geom_col(data = ggdf, 
-                mapping = aes(x = x, y = y, fill = Model, colour = Model),
-                position = "identity", alpha = 0.5) +
+        ggplot(data = ggdf, mapping = aes(x = x, y = y, fill = Model, colour = Model)) + 
+            geom_col(position = "identity", alpha = 0.5) +
             scale_fill_manual(values = c("#7570b3", "#66a61e")) +
             scale_colour_manual(values = c("#7570b3", "#66a61e")) +
             theme_bw() +
@@ -87,9 +85,9 @@ server <- function(input, output) {
                 subtitle = paste0("n = ", n, ", p = ", round(p, 7)),
                 caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             theme(legend.position = "bottom") +
-            if(input$addnorm) stat_function(aes(x = xseq),
+            if(input$addnorm) stat_function(
                 fun = function(x) dnorm(x, n*p, sqrt(n*p*(1-p))), 
-                n = 1000, xlim = plotlims)
+                n = 1000, xlim = plotlims, colour = 1)
     })
 }
 
