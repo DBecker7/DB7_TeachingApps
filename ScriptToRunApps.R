@@ -19,6 +19,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 # Distribution shapes
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Tools/distrshapes")
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Tools/distrshapes_disc")
 # Power
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Tools/SimplePower")

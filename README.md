@@ -48,7 +48,8 @@ tags$div(HTML("Some questions:
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#tools">Tools</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#pnorm">pnorm</a>: Calculate and visualize normal probabilities.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#pvalues">pvalues</a>: Calculate and visualize p-values (normal distr).
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#distrshapes">distrshapes</a>: How parameters affect shape of distribution.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#distrshapes">distrshapes</a>: How parameters affect shape of continuous distributions.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#distrshapes_disc">distrshapes_disc</a>: How parameters affect shape ofdiscrete distributions.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#simplepower">SimplePower</a>: Calculate power for simple null/alt (normal distr).
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#self-discovery-apps">Self-Discovery Apps</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#poisbinapprox">PoisBinApprox</a>: Poisson (and normal) approximation to the binomial.
@@ -114,6 +115,19 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Tools/distrshapes")
+```
+
+### distrshapes_disc
+
+<img src="Figures/distrshapes_disc.jpg" width="400" align="right">
+
+- Discrete version of the app above.
+- Ghosts are blue and fade away.
+    - Max 10 ghosts before it gets laggy.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Tools/distrshapes_disc")
 ```
 
 ### SimplePower
