@@ -74,7 +74,7 @@ server <- function(input, output) {
             labs(x = "x", y = "Count", title = "Histogram") +
             stat_function(fun = function(y) {
                 dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
-            }, col = 2, n = 600)
+            }, col = 2, n = 1000)
         
         ggbar <- ggplot(mapping = aes(x = x$x)) + 
             geom_bar(aes(x = x$x, y = ..prop..), 
@@ -84,7 +84,7 @@ server <- function(input, output) {
                 caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             stat_function(fun = function(y) {
                 dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
-            }, col = 2, n = 600)
+            }, col = 2, n = 1000)
         
         gghist / ggbar
     })
