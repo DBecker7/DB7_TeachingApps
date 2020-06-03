@@ -1,3 +1,5 @@
+# distrshapes
+
 library(shiny)
 
 parameter_tabs <- tagList(
@@ -113,10 +115,12 @@ server <- function(input, output, session) {
     
     distfun <- reactive({
         
+        # Allows for switching order if b < a
         unifs <- c(input$min-0.001, input$max)
         
         lohi <- switch(input$dist,
             normal = c(input$mean - 3*input$sd, input$mean + 3*input$sd),
+            # Switch order:
             uniform = c(min(unifs), max(unifs)),
             exponential = c(0, qexp(0.999, input$rate)),
             #gamma = c(0,forgamma[min(which(mydgamma < 0.005))])
