@@ -1,3 +1,5 @@
+# distrshapes_disc
+
 library(shiny)
 
 parameter_tabs <- tagList(
@@ -113,7 +115,7 @@ server <- function(input, output, session) {
             negbinomial = c(0, qnbinom(0.999, input$nbsize, input$nbprob)),
             geometric = c(0, qgeom(0.999, input$gprob)),
             poisson = c(0, qpois(0.999, input$lambda)),
-            hypergeometric = c(0, min(input$hypn, input$hypk))
+            hypergeometric = c(0, max(input$hypn, input$hypk))
         )
 
         xseq <- seq(lohi[1], lohi[2] + 1, by = 1)
