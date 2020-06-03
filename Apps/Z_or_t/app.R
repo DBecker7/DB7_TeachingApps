@@ -1,11 +1,4 @@
-#
-# This is a Shiny web application. You can run the application by clicking
-# the 'Run App' button above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
+# Z_or_t
 
 library(shiny)
 library(ggplot2)
@@ -55,8 +48,9 @@ ui <- fluidPage(
             plotOutput("distPlot"),
             verbatimTextOutput("vtout"),
             tags$div(HTML("Some questions:
-<ol><li>How does cahnging the mean and sd affect the sampling distribution of zobs?</li>
+<ol><li>How does changing the mean and sd affect the sampling distribution of zobs?</li>
     <li>If you use z instead of t, are you MORE or LESS likely to reject the null hypothesis?</li>
+    <li>The histogram represents a sample from the sampling distribution. Explain this concept in your own words.</li>
 </ol>"))
         )
     )
