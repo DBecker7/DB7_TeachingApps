@@ -73,7 +73,7 @@ server <- function(input, output) {
             theme_bw() +
             labs(x = "x", y = "Count", title = "Histogram") +
             stat_function(fun = function(y) {
-                dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
+                dnbinom(floor(y - 0.5), size = x$xest['size'], mu = x$xest['mu'])
             }, col = 2, n = 1000)
         
         ggbar <- ggplot(mapping = aes(x = x$x)) + 
@@ -83,7 +83,7 @@ server <- function(input, output) {
             labs(x = "x", y = "Count", title = "Bar plot",
                 caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
             stat_function(fun = function(y) {
-                dnbinom(floor(y), size = x$xest['size'], mu = x$xest['mu'])
+                dnbinom(floor(y - 0.5), size = x$xest['size'], mu = x$xest['mu'])
             }, col = 2, n = 1000)
         
         gghist / ggbar
