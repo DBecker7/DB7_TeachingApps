@@ -1,4 +1,4 @@
-# 
+# ci
 
 library(shiny)
 
@@ -11,7 +11,7 @@ resetter25 <- 0
 ui <- fluidPage(
     
     
-    #titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Confidence Intervals"),
     
     
     sidebarLayout(

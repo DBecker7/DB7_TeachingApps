@@ -1,4 +1,4 @@
-# 
+# samplingDist
 
 library(shiny)
 library(dplyr)
@@ -16,7 +16,7 @@ colourlast <<- 0
 ui <- fluidPage(
     
     
-    #titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Sampling Distributions"),
     
     
     sidebarLayout(
