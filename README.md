@@ -309,8 +309,11 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 <img src="Figures/ci.jpg" width="400" align="right">
 
-- The classic app to generate samples, find the CI, then keep a record of them.
+- The classic app to generate samples, find the CI, then keep a record of them
+- Shows the coverage so that students can investigate how the coverage relies on n.
 - Changing n, mu, and sigme re-generate data, but alpha does not. This allows users to see how the coverage changes with alpha.
+- Has buttons to add 1 at a time or jump up by 5, 25, or 100.
+- 
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
