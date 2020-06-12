@@ -63,6 +63,7 @@ tags$div(HTML("Some questions:
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#indep">indep</a>: Visualization of independence.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#Z_or_t">Z_or_t</a>: How large must *n* be for normal p-value?.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#ci">Z_or_t</a>: Confidence Intervals.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#BlockVariance">BlockVariance</a>: Blocking reduces variance.
@@ -301,6 +302,18 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/Z_or_t")
+```
+
+### ci
+
+<img src="Figures/ci.jpg" width="400" align="right">
+
+- The classic app to generate samples, find the CI, then keep a record of them.
+- Changing n, mu, and sigme re-generate data, but alpha does not. This allows users to see how the coverage changes with alpha.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/ci")
 ```
 
 ## Animations

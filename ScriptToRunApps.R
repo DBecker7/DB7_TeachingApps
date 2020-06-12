@@ -58,6 +58,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 # Z or t??
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/Z_or_t")
+# Confidence Intervals
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/ci")
 
 
 # Spatial Passion Projects ----
