@@ -5,6 +5,8 @@ library(shiny)
 
 mymat <- matrix(integer(0), ncol = 2)
 colnames(mymat) <- c("lo", "hi")
+resetter5 <- 0
+resetter25 <- 0
 
 ui <- fluidPage(
     
@@ -39,12 +41,13 @@ ui <- fluidPage(
                 value = 0.05,
                 step = 0.01),
             actionButton("doit", "Add 1"),
-            actionButton("doit5", "Add 5")
+            actionButton("doit5", "Add 5"),
+            actionButton("doit25", "Add 25")
         ),
         
         
         mainPanel(
-            plotOutput("distPlot")
+            plotOutput("distPlot", height = "600px")
         )
     )
 )
@@ -69,10 +72,21 @@ server <- function(input, output) {
             mymat <<- rbind(mymat, x2)}
     })
     
+    add25 <- reactive({
+        input$doit25
+        for(i in 1:25){
+            x <- rnorm(input$n, mean = input$mu, sd = input$sigma)
+            x2 <- matrix(c(mean(x), sd(x)), ncol = 2)
+            colnames(x2) <- c("hi", "lo")
+            mymat <<- rbind(mymat, x2)}
+    })
+    
     newdata <- reactive({
         input$n
         input$sigma
         input$mu
+        resetter5 <<- isolate(input$doit5)
+        resetter25 <<- isolate(input$doit25)
         mymat <<- matrix(integer(0), ncol = 2)
         colnames(mymat) <<- c("lo", "hi")
     })
@@ -80,7 +94,8 @@ server <- function(input, output) {
     output$distPlot <- renderPlot({
         newdata()
         adddata()
-        addfive()
+        if(input$doit5 > resetter5) addfive()
+        if(input$doit25 > resetter25) add25()
         
         mu <- input$mu
         sd <- input$sigma
@@ -102,8 +117,7 @@ server <- function(input, output) {
         pop <- ggplot() + 
             geom_line(aes(x = xseq, y = yseq), size = 1) +
             theme_void() +
-            labs(title = "Population Distribution",
-                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
+            labs(title = "Population Distribution") +
             theme(plot.title = element_text(hjust = 0.5)) +
             theme(title = element_text(size = 16), 
                 axis.text = element_text(size = 14)) +
@@ -121,15 +135,17 @@ server <- function(input, output) {
                 colour = "Contains true mean?",
                 title = paste0("Sample CIs - ", 
                     round(mean(1 - mydf$sig), 4)*100, "% contain mu"),
-                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps") +
-            theme(plot.title = element_text(hjust = 0.5)) +
-            theme(title = element_text(size = 16), 
-                axis.text = element_text(size = 14)) +
+                caption = paste0("Created by Devan Becker\n", 
+                    "Github: DBecker7/DB7_TeachingApps")) +
+            theme(plot.title = element_text(hjust = 0.5),
+                title = element_text(size = 16), 
+                axis.text = element_text(size = 14),
+                legend.position = "nont") +
             scale_colour_manual(values = c(1,2), drop = F) +
             annotate("segment", x = mu, xend = mu, 
                 y = -Inf, yend = Inf, col = "grey")
         
-        pop / samps
+        pop / samps + plot_layout(heights = c(1,2))
     })
 }
 
