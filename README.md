@@ -327,6 +327,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 - A re-creation of <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">a classic app</a> with a few tweaks.
 - Generate samples, calculate the mean, record it, and show a histogram of all sampled values.
 - Includes means and sds of samples, sampling distribution, and population.
+- When a new sample is generated, the colours reflect the new value(s). This is most obvious when adding 1 and when adding 100 many many times.
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
