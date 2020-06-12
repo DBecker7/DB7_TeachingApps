@@ -61,6 +61,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 # Confidence Intervals
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/ci")
+# Sampling Distributions
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/samplingDist")
 
 
 # Spatial Passion Projects ----

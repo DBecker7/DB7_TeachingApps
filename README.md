@@ -64,6 +64,7 @@ tags$div(HTML("Some questions:
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#Z_or_t">Z_or_t</a>: How large must *n* be for normal p-value?.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#ci">ci</a>: Confidence Intervals.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#samplingDist">samplingDist</a>: Sampling Distributions.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#BlockVariance">BlockVariance</a>: Blocking reduces variance.
@@ -315,6 +316,35 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/ci")
 ```
+
+### samplingDist
+
+<img src="Figures/samplingDist.jpg" width="400" align="right">
+
+- A re-creation of <a href="http://onlinestatbook.com/stat_sim/sampling_dist/">a classic app</a> with a few tweaks.
+- Generate samples, calculate the mean, record it, and show a histogram of all sampled values.
+- Includes means and sds of samples, sampling distribution, and population.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/samplingDist")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ## Animations
 
