@@ -111,7 +111,10 @@ server <- function(input, output) {
                 sig = lo > mu | hi < mu) %>% 
             mutate(truemean = factor(!sig, levels = c("TRUE", "FALSE")))
         
-        xseq <- seq(min(mydf$lo), max(mydf$hi), length.out = 200)
+        xlims <- c(min(input$mu - 1.5*input$sigma, mydf$lo),
+            max(input$mu + 1.5*input$sigma, mydf$hi))
+        
+        xseq <- seq(xlims[1], xlims[2], length.out = 200)
         yseq <- dnorm(xseq, input$mu, input$sigma)
         
         pop <- ggplot() + 
@@ -122,14 +125,15 @@ server <- function(input, output) {
             theme(title = element_text(size = 16), 
                 axis.text = element_text(size = 14)) +
             annotate("segment", x = mu, xend = mu, y = 0, 
-                yend = dnorm(mu, mu, sd)) +
+                yend = dnorm(mu, mu, sd), colour = 3) +
             annotate("text", x = mu, y = -0.05, label = "mu", 
-                parse = TRUE)
+                parse = TRUE) +
+            xlim(xlims)
         
         samps <- ggplot(mydf, aes(ymin = lo, x = sample, 
                 ymax = hi, col = truemean)) + 
             geom_errorbar() + 
-            coord_flip() + 
+            coord_flip(ylim = xlims) + 
             theme_minimal() +
             labs(x = "Sample Number", y = "CI", 
                 colour = "Contains true mean?",
@@ -142,8 +146,8 @@ server <- function(input, output) {
                 axis.text = element_text(size = 14),
                 legend.position = "nont") +
             scale_colour_manual(values = c(1,2), drop = F) +
-            annotate("segment", x = mu, xend = mu, 
-                y = -Inf, yend = Inf, col = "grey")
+            annotate("segment", x = -Inf, xend = Inf, 
+                y = mu, yend = mu, col = 3)
         
         pop / samps + plot_layout(heights = c(1,2))
     })
