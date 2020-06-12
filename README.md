@@ -63,7 +63,7 @@ tags$div(HTML("Some questions:
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#indep">indep</a>: Visualization of independence.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#nlarge">nLarge</a>: How large must *n* be for CLT?.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#Z_or_t">Z_or_t</a>: How large must *n* be for normal p-value?.
-    - <a href="https://github.com/DBecker7/DB7_TeachingApps#ci">Z_or_t</a>: Confidence Intervals.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#ci">ci</a>: Confidence Intervals.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#BlockVariance">BlockVariance</a>: Blocking reduces variance.
