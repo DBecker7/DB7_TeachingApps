@@ -299,6 +299,8 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 - Another way to test what counts as a "large" n.
 - Should you use the normal distribution or the t distribution?
+- Formulae are added as a legend for which sampling distribution is which.
+- Code to generate sampling distributions is shown below plot.
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
