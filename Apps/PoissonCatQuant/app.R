@@ -8,6 +8,16 @@ library(ggplot2)
 library(patchwork)
 
 ui <- fluidPage(
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
     
     # Application title
     titlePanel("Is Poisson Discrete or Continuous?"),

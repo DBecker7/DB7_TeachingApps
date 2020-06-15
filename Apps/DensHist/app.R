@@ -8,6 +8,16 @@ myseed <- round(runif(1, 0, 1000))
 softmax <- 0.1
 
 ui <- fluidPage(
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
     
     titlePanel("Relationship between histograms and density lines"),
     

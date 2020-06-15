@@ -1,6 +1,7 @@
 # ci
 
 library(shiny)
+library(dplyr)
 
 
 mymat <- matrix(integer(0), ncol = 2)
@@ -9,6 +10,16 @@ resetter5 <- 0
 resetter25 <- 0
 
 ui <- fluidPage(
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
     
     
     titlePanel("Confidence Intervals"),
@@ -137,7 +148,7 @@ server <- function(input, output) {
             theme_minimal() +
             labs(x = "Sample Number", y = "CI", 
                 colour = "Contains true mean?",
-                title = paste0("Sample CIs - ", 
+                title = paste0("Sample CIs: ", 
                     round(mean(1 - mydf$sig), 4)*100, "% contain mu"),
                 caption = paste0("Created by Devan Becker\n", 
                     "Github: DBecker7/DB7_TeachingApps")) +

@@ -6,6 +6,16 @@ library(dplyr)
 library(ggplot2)
 
 ui <- fluidPage(
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
     
     # Application title
     titlePanel("Exploration of Skewed Data"),

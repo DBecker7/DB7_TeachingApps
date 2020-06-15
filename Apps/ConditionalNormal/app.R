@@ -15,6 +15,16 @@ mymat <- expand.grid(x = myx, y = myx)
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
 
     # Application title
     titlePanel("Conditional Distributions from Multivariate Normal"),

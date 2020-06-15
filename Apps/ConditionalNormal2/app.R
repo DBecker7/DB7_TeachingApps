@@ -22,6 +22,16 @@ userMatrix <- matrix(c(0.86,0.4,-0.3,0, -0.5,0.65,-0.57,0, 0,0.65,0.75,0, 0,0,0,
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
+    tags$style(
+        ".irs-bar {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}",
+        ".irs-bar-edge {",
+        "  border-color: transparent;",
+        "  background-color: transparent;",
+        "}"
+    ),
     
     # Application title
     titlePanel("Conditional Distributions from Multivariate Normal"),
