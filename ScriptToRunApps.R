@@ -64,6 +64,9 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 # Sampling Distributions
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/samplingDist")
+# Sampling Designs: Gettysburg Address
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/gettysburg")
 
 
 # Spatial Passion Projects ----

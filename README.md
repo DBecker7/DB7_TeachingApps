@@ -65,6 +65,7 @@ tags$div(HTML("Some questions:
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#Z_or_t">Z_or_t</a>: How large must *n* be for normal p-value?.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#ci">ci</a>: Confidence Intervals.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#samplingDist">samplingDist</a>: Sampling Distributions.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#gettysburg">gettysburg</a>: Sampling designs using the Gettysburg Address.
 - <a href="https://github.com/DBecker7/DB7_TeachingApps#animations">Animations</a>
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#transform_norm">transform_norm</a>: Tansformation of a Normal to Lognormal
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#BlockVariance">BlockVariance</a>: Blocking reduces variance.
@@ -334,6 +335,19 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/samplingDist")
+```
+
+### gettysburg
+
+<img src="Figures/gettysburg.jpg" width="400" align="right">
+
+- Calculating the average word length in the Gettysburg Address.
+- Students can see what gets sampled using SRS, stratified, or cluster sampling.
+- For stratified, shows the sample of words in each stratum (paragraph).
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/gettysburg")
 ```
 
 

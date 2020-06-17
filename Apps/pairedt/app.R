@@ -3,6 +3,7 @@
 library(shiny)
 library(ggplot2)
 library(patchwork)
+library(dplyr)
 
 ui <- fluidPage(
     tags$style(
@@ -53,7 +54,10 @@ ui <- fluidPage(
         ),
         
         mainPanel(
-            plotOutput("distPlot")
+            tabsetPanel(
+                tabPanel("One at a time", plotOutput("distPlot")),
+                tabPanel("Type 2 error", plotOutput("type2Plot"))
+            )
         )
     )
 )
@@ -113,6 +117,54 @@ server <- function(input, output) {
             scale_y_continuous(breaks = NULL)
         
         p1 / p2 + plot_layout(guides = "collect")
+    })
+    
+    output$type2Plot <- renderPlot({
+        input$doit
+        n <- input$n
+        mu1 <- input$mu1
+        mu2 <- input$mu2
+        sd1 <- input$sd1
+        sd2 <- input$sd2
+        poolsd <- sqrt((sd1^2 + sd2^2)/n)
+        
+        N <- 1000
+        
+        cil <- vector("list", N)
+        
+        for(i in 1:N){
+            samp1 <- rnorm(n)
+            diffs <- rnorm(n)
+            samp2 <- samp1 - diffs
+            samp1 <- sd1*samp1 + mu1
+            samp2 <- sd2*samp2 + mu2
+            
+            ue <- t.test(samp1, samp2, paired = FALSE, var.equal = TRUE)
+            un <- t.test(samp1, samp2, paired = FALSE, var.equal = FALSE)
+            pn <- t.test(samp1, samp2, paired = TRUE)
+            
+            cil[[i]] <- data.frame(
+                loci = c(ue$conf[1], un$conf[1], pn$conf[1]),
+                hici = c(ue$conf[2], un$conf[2], pn$conf[2]),
+                pval = c(ue$p.val[1], un$p.val[1], pn$p.val[1]),
+                model = c("Unpaired_VarEqual", "Unpaired_VarUnequal", "Paired"),
+                paired = c(FALSE, FALSE, TRUE),
+                var.equal = c(TRUE, FALSE, "NA"))
+        }
+        
+        tdiff <- input$mu1 - input$mu2
+        cidf <- bind_rows(cil) %>% 
+            mutate(coverage = loci < tdiff & hici > tdiff)
+        cis <- group_by(cidf, model) %>% 
+            summarise(type1 = 1 - mean(coverage))
+        
+        ggplot(cis, aes(x = model, y = type1)) + 
+            theme_bw() + 
+            theme(legend.position = "none") + 
+            geom_col(colour = 1, 
+                mapping = aes(fill = ifelse(substr(model, 1, 1) != "U", 
+                    "A", 2))) +
+            geom_text(aes(label = round(type1, 4)), vjust = -0.1, size = 7)
     })
 }
 
