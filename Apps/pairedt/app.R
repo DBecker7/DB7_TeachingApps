@@ -1,5 +1,7 @@
 # pairedt
 
+# TODO: var.equals = FALSE makes no sense. Simulate better, Devan!
+
 library(shiny)
 library(ggplot2)
 library(patchwork)
