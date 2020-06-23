@@ -16,6 +16,10 @@ getty <- tibble(txt = c(p1, p2, p3), para = c(1,2,3)) %>%
     mutate(nch = nchar(word))
 pop_mean <- mean(getty$nch)
 sample_ind <<- sample(1:nrow(getty), 10, TRUE)
+sample_ind1 <<- sample(1:30, 10, TRUE)
+sample_ind2 <<- sample(1:73, 10, TRUE)
+sample_ind3 <<- sample(1:100, 10, TRUE)
+sample_clust <<- 1
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -23,6 +27,23 @@ ui <- fluidPage(
     titlePanel("Length of Words in the Gettysburg Address"),
     
     tabsetPanel(
+        
+        tabPanel("Full Text", fluid = TRUE,
+            "Paragraph 1: Mean letter count = ", 
+            round(mean(getty$nch[getty$para == 1]), 3), tags$br(), 
+            p1, 
+            tags$br(), tags$br(), 
+            "Paragraph 2: Mean letter count = ", 
+            round(mean(getty$nch[getty$para == 2]), 3), tags$br(), 
+            p2, 
+            tags$br(), tags$br(), 
+            "Paragraph 3: Mean letter count = ", 
+            round(mean(getty$nch[getty$para == 3]), 3), tags$br(), 
+            p3,
+            tags$br(), tags$br(), 
+            "Overall mean letter count = ", 
+            round(pop_mean, 3),
+        ),
         tabPanel("SRS", fluid = TRUE,
             sidebarLayout(
                 sidebarPanel(
@@ -45,7 +66,9 @@ ui <- fluidPage(
                         max = 73, value = 3),
                     sliderInput("nstrat3", "n from paragraph 3", min = 1, 
                         max = 169, value = 3),
-                    actionButton("doitstrat", "New Data")
+                    actionButton("doitstrat", "New Data"),
+                    tags$br(),
+                    "For (approx) random, try n = (16, 39, 90)"
                 ),
                 mainPanel(
                     "Sampled words from paragraph 1:",
@@ -72,22 +95,6 @@ ui <- fluidPage(
                     plotOutput("clust")
                 )
             )
-        ),
-        tabPanel("Full Text", fluid = TRUE,
-            "Paragraph 1: Mean word count = ", 
-            round(mean(getty$nch[getty$para == 1]), 3), tags$br(), 
-            p1, 
-            tags$br(), tags$br(), 
-            "Paragraph 2: Mean word count = ", 
-            round(mean(getty$nch[getty$para == 2]), 3), tags$br(), 
-            p2, 
-            tags$br(), tags$br(), 
-            "Paragraph 3: Mean word count = ", 
-            round(mean(getty$nch[getty$para == 3]), 3), tags$br(), 
-            p3,
-            tags$br(), tags$br(), 
-            "Overall mean word count = ", 
-            round(pop_mean, 3),
         )
     )
 )

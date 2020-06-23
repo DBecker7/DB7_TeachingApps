@@ -8,7 +8,7 @@ library(shiny)
 ui <- fluidPage(
     
     
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Robustness of Median and IQR"),
     
     
     sidebarLayout(
