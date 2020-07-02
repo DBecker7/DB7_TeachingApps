@@ -13,6 +13,9 @@ library(patchwork)
 # Normal Probabilities
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Tools/pnorm")
+# Binomial Probabilities
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Tools/dbinom")
 # p-values
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Tools/pvalues")
