@@ -13,6 +13,9 @@ library(patchwork)
 # Normal Probabilities
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Tools/pnorm")
+# Normal Shape
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Tools/normShape")
 # Binomial Probabilities
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Tools/dbinom")
