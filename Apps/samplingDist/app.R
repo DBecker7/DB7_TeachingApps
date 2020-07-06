@@ -222,11 +222,12 @@ server <- function(input, output) {
         data.frame(Name = c("Mean of Population", 
             "Mean of Sample Means",
             "Mean of last sample",
-            "Population SD/sqrt(n)", "SD of means",
+            "Population SD/sqrt(n)", 
+            "SD of Sample Means",
             "SD of last sample",
             "SD of last sample/sqrt(n)"),
-            Value = c(input$mu, mean(myvec), input$sigma/sqrt(input$n), 
-                sd(myvec), mean(x), sd(x), sd(x)/sqrt(input$n)))
+            Value = c(input$mu, mean(myvec), mean(x), input$sigma/sqrt(input$n), 
+                sd(myvec), sd(x), sd(x)/sqrt(input$n)))
     })
 }
 
