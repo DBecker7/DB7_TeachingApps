@@ -83,15 +83,13 @@ server <- function(input, output) {
         input$doit
         n <- input$n
         r <- input$r
+        if(r == 0) r <- 0.00001
         # Shamelessly stolen from https://stats.stackexchange.com/questions/83172/generate-two-variables-with-precise-pre-specified-correlation
         xy = mvrnorm(n = n, mu = c(0, 0), 
             Sigma = matrix(c(1, r^2, r^2, 1), nrow = 2), 
             empirical=TRUE)
         x = xy[, 1] 
-        y = input$a + input$b*xy[, 2] 
-        if(r == 0){
-            y = input$a
-        }
+        y = input$a + (input$b + 0.01)*xy[, 2] 
         data.frame(x = x, y = y)
     })
     
