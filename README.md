@@ -196,7 +196,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ### InfluentialPoint
 
-<img src="Figures/InfluentialPoint.png" width="400" align="right>
+<img src="Figures/InfluentialPoint.png" width="400" align="right">
 
 - The influence of a point depends on where it is in relation to the line *as well as* to the point (x bar, y bar).
 - Think of drawing axes at (x bar, ybar). This creates four quadrants, two of which contain the line. Points in the quadrants without the line have more influence.
