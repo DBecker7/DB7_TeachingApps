@@ -56,6 +56,7 @@ tags$div(HTML("Some questions:
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#qqdistrfitting">QQDistrFittting</a>: QQ Plots to test distributional assumptions.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#scattercorr">ScatterCorr</a>: Scatterplots with a fixed correlation.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#influentialpoint">InfluentialPoint</a>: Move around a point to see it's affect on the line.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#multipleregressionpenguins">MultipleRegression Penguins</a>: See the effects of including/removing predictors.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#serialcorrelation">SerialCorrelation</a>: Demonstrate autocorrelation and the runs test.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#meanlessmeansleft">MeanLessMeansLeft</a>: Generate distribution with fixed mean and median.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#denshist">DensHist</a>: Compare density plots to histograms.
@@ -205,6 +206,19 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/InfluentialPoint")
+```
+
+### MultipleRegressionPenguins
+
+<img src="Figures/MultipleRegressionPenguins.png" width="400" align="right">
+
+- Add/remove predictors and see the effect.
+- Flipper Length is strongly correlated, bill length/depth are not.
+    - Adding bill measurements still changes the estimate for flipper length!
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/MultipleRegressionPenguins")
 ```
 
 ### SerialCorrelation
