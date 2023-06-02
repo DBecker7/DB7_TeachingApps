@@ -174,7 +174,7 @@ server <- function(input, output, session) {
         
         legend("topleft", 
             legend = switch(input$dist,
-                normal = bquote("f(x)=("*2*pi*sigma^2*")"^{n/2}*exp(-(x*"-"*mu)^2/(2*sigma^2))),
+                normal = bquote("f(x)=("*2*pi*sigma^2*")"^{-n/2}*exp(-(x*"-"*mu)^2/(2*sigma^2))),
                 uniform = bquote("f(x)="*1/(b-a)),
                 exponential = bquote("f(x)="*lambda*exp(-lambda*x)),
                 gamma = bquote("f(x)="*beta^alpha*x^{alpha-1}*exp(-beta*x)/Gamma(alpha)),
