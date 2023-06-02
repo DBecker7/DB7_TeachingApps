@@ -56,6 +56,7 @@ tags$div(HTML("Some questions:
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#qqdistrfitting">QQDistrFittting</a>: QQ Plots to test distributional assumptions.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#scattercorr">ScatterCorr</a>: Scatterplots with a fixed correlation.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#influentialpoint">InfluentialPoint</a>: Move around a point to see it's affect on the line.
+    - <a href="https://github.com/DBecker7/DB7_TeachingApps#serialcorrelation">SerialCorrelation</a>: Demonstrate autocorrelation and the runs test.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#meanlessmeansleft">MeanLessMeansLeft</a>: Generate distribution with fixed mean and median.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#denshist">DensHist</a>: Compare density plots to histograms.
     - <a href="https://github.com/DBecker7/DB7_TeachingApps#measurespread">MeasureSpread</a>: Fixed IQR and SD.
@@ -205,6 +206,20 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
     subdir = "Apps/InfluentialPoint")
 ```
+
+### SerialCorrelation
+
+<img src="Figures/SerialCorrelation.png" width="400" align="right">
+
+- Demonstrates the idea of serial correlation.
+- Lag 6 is a bit overkill, but allows for seasonal effects.
+- Also includes the runs test.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/SerialCorrelation")
+```
+
 
 ### MeanLessMeansLeft
 
