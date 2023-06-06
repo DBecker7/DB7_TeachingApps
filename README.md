@@ -227,7 +227,7 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 - Demonstrates the idea of serial correlation.
 - Lag 6 is a bit overkill, but allows for seasonal effects.
-- Also includes the runs test.
+- Also includes the runs test and the Durbin-Watson test statistic.
 
 ```r
 shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 

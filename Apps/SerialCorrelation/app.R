@@ -31,8 +31,13 @@ server <- function(input, output) {
                     rnorm(1, 0, input$s))
         }
         es <- es[7:(input$n + 6)]
+
+        dw <- sum((es[-1] - es[1:(length(es)-1)])^2) / sum(es^2)
+
         par(mfrow = c(2, 2))
-        plot(es, main = "Residuals",
+        plot(es,
+            main = paste0("Residuals, DW=",
+                round(dw, 2)),
             xlab = "Equally spaced time point",
             ylab = "Residual")
         acf(es, main = "ACF")
