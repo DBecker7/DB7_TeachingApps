@@ -153,6 +153,16 @@ shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps",
 
 ## Self-Discovery Apps
 
+### Binormial
+
+- Demonstrates why we check both np and n(1-p) for the normal approximation to the binomial distribution.
+- Currently very barebones.
+
+```r
+shiny::runGitHub(repo = "DBecker7/DB7_TeachingApps", 
+    subdir = "Apps/Binormial")
+```
+
 ### PoisBinApprox
 
 <img src="Figures/PoisBinApprox.jpg" width="400" align="right">
