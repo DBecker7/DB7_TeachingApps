@@ -57,7 +57,7 @@ server <- function(input, output) {
         if (input$restype == "R Default") {
             par(mfrow = c(2, 2))
             plot(mylm, col = peng[, input$col][[1]])
-        } else if (input$restype == "Residuals versus Fitted"){
+        } else if (input$restype == "Residuals versus Fitted") {
             par(mfrow = c(1, 1))
             plot(mylm, which = 1, col = peng[, input$col][[1]])
         } else {
