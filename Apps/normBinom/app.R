@@ -54,7 +54,7 @@ server <- function(input, output) {
             labs(x = "x", y = "Probability",
                 title = "Normal Approximation to Binomial",
                 subtitle = paste0("n*p=", input$n*input$p, 
-                    ", n*(1-p)=", input$n*(1-input$p)))
+                    ", n*p*(1-p)=", input$n*(1-input$p)))
     })
 }
 
