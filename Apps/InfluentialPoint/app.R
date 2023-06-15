@@ -1,13 +1,11 @@
 # ScatterCorr
 # A tool for students to explore correlation.
 
-
 library(shiny)
 library(ggplot2)
 
 myseed <- 2112
 set.seed(myseed)
-
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -51,6 +49,7 @@ ui <- fluidPage(
         # Show a plot of the generated distribution
         mainPanel(
             plotOutput("distPlot"),
+            tableOutput("infMeasures"),
             tags$div(HTML("Some questions:<br><ul>
 	<li>Where does an outlier have the largest effect on the slope?</li>
 	<li>Why is it easier to reduce the slope, but harder to increase it?</li>
@@ -78,6 +77,26 @@ server <- function(input, output) {
         data.frame(x = c(input$x, x), y = c(input$y, y))
     })
 
+    output$infMeasures <- renderTable({
+        newseed()
+        xy <- makedata()
+
+        x <- xy[, 1]
+        y <- xy[, 2]
+        outlier <- c("Outlier", rep("Data", input$n - 1))
+
+        lmwith <- lm(y ~ x, data = xy)
+        lmwout <- lm(y ~ x, data = xy[-1, ])
+
+        data.frame(
+            variable = c("intercept", "slope", 
+                "sigma", "h_{ii}"),
+            without_outlier = round(c(lmwout$coef[1], lmwout$coef[2],
+                summary(lmwout)$sigma, NA), 2),
+            with_outlier = round(c(lmwith$coef[1], lmwith$coef[2],
+                summary(lmwith)$sigma, hatvalues(lmwith)[1]), 2)
+        )
+    })
 
     output$distPlot <- renderPlot({
         newseed()
@@ -101,7 +120,8 @@ server <- function(input, output) {
             theme_bw() +
             labs(title = paste0("Slope with outlier: ", round(bwith, 2),
                     ", slope without: ", round(bwout, 2)),
-                caption = "Created by Devan Becker\nGithub: DBecker7/DB7_TeachingApps",
+                caption = paste0("Created by Devan Becker\n",
+                    "Github: DBecker7/DB7_TeachingApps"),
                 colour = NULL, size = NULL) +
             theme(title = element_text(size = 16),
                 axis.text = element_text(size = 14)) +
