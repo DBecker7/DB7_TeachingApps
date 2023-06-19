@@ -2,7 +2,8 @@
 
 library(shiny)
 library(dplyr)
-
+library(ggplot2)
+library(patchwork)
 
 mymat <- matrix(integer(0), ncol = 2)
 colnames(mymat) <- c("lo", "hi")
